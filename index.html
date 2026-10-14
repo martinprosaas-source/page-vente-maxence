@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maxence Delmas — Tes premiers 1 000 € avec une influenceuse IA</title>
+<meta name="description" content="Crée ton influenceuse IA, rends-la virale et fais tes premiers 1 000 € dès le premier mois. Accède gratuitement au programme de Maxence Delmas.">
+<meta name="theme-color" content="#050505">
+<!-- Vercel Web Analytics. Pas de paquet à installer : la page n'a pas
+     d'étape de construction, et Vercel sert ce script depuis le domaine
+     lui-même — donc aucun bloqueur de publicité ne le reconnaît comme un
+     mouchard tiers, et les chiffres sont justes.
+
+     La file d'attente `vaq` retient les événements déclenchés avant que
+     le script soit chargé : sans elle, un visiteur pressé qui ouvre le
+     formulaire tout de suite ne serait pas compté. -->
+<script>
+  window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- La poignée de main avec Vimeo — DNS, TLS — se fait pendant que le
+     navigateur lit encore la page, pas au moment de demander la vidéo. -->
+<link rel="preconnect" href="https://player.vimeo.com" crossorigin>
+<link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
+<link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SYSTÈME DE DESIGN — noir profond, or chaud
+   L'or ne sert qu'à guider l'œil : un mot surligné par titre,
+   les chiffres clés, les boutons. Tout le reste est noir et
+   blanc cassé.
+   ============================================================ */
+:root{
+  --bg:#050505;
+  --surface:#0F0E0B;       /* cartes, modale, champs */
+  --surface-2:#171511;
+  --line:#2A261E;
+  --line-strong:#3D372B;
+
+  --text:#F3F0E8;          /* blanc cassé : titres, texte fort */
+  --text-2:#A39D90;        /* gris chaud : texte courant */
+  --text-3:#857F72;        /* gris chaud discret : mentions, légendes */
+
+  --gold:#F6C944;          /* surligneur, chiffres clés */
+  --gold-pale:#ECD086;     /* boutons */
+  --gold-deep:#BA9932;     /* bas du dégradé */
+  --gold-dark:#2C2406;     /* départ du dégradé */
+  --halo:#EFDB4D;          /* contour lumineux des cartes fortes */
+  --on-gold:#0A0905;       /* texte posé sur l'or */
+  --red:#E5484D;
+
+  --radius:10px;
+  --radius-lg:16px;
+  --pad-y:68px;
+  --maxw:560px;
+
+  --font-title:"Montserrat",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-body:"Hanken Grotesk",-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text-2);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.62;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+a{color:inherit}
+
+h1,h2,h3{
+  font-family:var(--font-title);
+  color:var(--text);
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:-.012em;
+  line-height:1.1;
+  margin:0;
+}
+h1{font-size:clamp(29px,8.4vw,40px);line-height:1.14;text-wrap:balance}
+h2{font-size:clamp(25px,7vw,34px);text-wrap:balance}
+h3{font-size:17px;letter-spacing:0;line-height:1.25}
+p{margin:0}
+strong{color:var(--text);font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+
+/* Signature n°1 — le mot clé posé sur un bloc jaune incliné, façon
+   surligneur. Le bloc est un pseudo-élément : le texte reste droit,
+   seul le fond penche. */
+.hl{
+  position:relative;z-index:0;
+  display:inline-block;
+  color:var(--on-gold);
+  padding:0 .16em;margin:0 .04em;
+  white-space:nowrap;
+}
+.hl::before{
+  content:"";position:absolute;z-index:-1;
+  inset:.02em -.02em .04em;
+  background:var(--gold);
+  border-radius:3px;
+  transform:rotate(-2deg) skewX(-5deg);
+}
+
+/* Les trous à combler, repérables d'un coup d'œil (voir A-COMPLETER.md) */
+.ac{
+  display:inline-block;
+  font-family:var(--font-body);font-weight:600;font-size:.82em;
+  text-transform:none;letter-spacing:0;line-height:1.3;
+  color:var(--gold);
+  border:1px dashed rgba(246,201,68,.6);border-radius:4px;
+  padding:0 .35em;
+  vertical-align:.08em;
+}
+
+/* ---------- Mise en page ---------- */
+.section{padding:var(--pad-y) 0;position:relative}
+.in{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.rule{border-top:1px solid var(--line)}
+.stack{display:flex;flex-direction:column;gap:18px}
+.center{text-align:center}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-body);font-size:12px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--text-2);
+}
+.eyebrow::before{content:"";width:7px;height:7px;background:var(--gold);flex:none}
+.lead{font-size:17px;line-height:1.55;color:var(--text-2)}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:34px}
+.head.center{align-items:center}
+
+/* Signature n°2 — le dégradé noir → or, réservé au hero et au CTA final */
+.fondu-or{
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 48%,#120F04 66%,var(--gold-dark) 80%,#6E5A1C 93%,var(--gold-deep) 100%);
+  border-bottom:4px solid var(--gold);
+}
+
+/* ---------- CTA ---------- */
+.cta{
+  display:block;text-align:center;
+  width:100%;border:0;cursor:pointer;
+  padding:20px 22px;
+  border-radius:6px;
+  background:var(--gold-pale);
+  color:var(--on-gold);
+  font-family:var(--font-title);font-weight:800;font-size:15.5px;
+  letter-spacing:.03em;text-transform:uppercase;line-height:1.2;
+  box-shadow:inset 0 -3px 0 rgba(0,0,0,.16);
+  transition:background .16s ease, transform .16s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.cta:hover{background:var(--gold)}
+.cta:active{transform:translateY(1px)}
+.cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.cta-fleche{display:inline-block;margin-left:8px;transition:transform .16s ease}
+.cta:hover .cta-fleche{transform:translateX(4px)}
+.cta-note{font-size:13px;color:var(--text-3);text-align:center;line-height:1.5}
+
+/* La note étoilée sous les boutons, comme sur les visuels de Maxence */
+.rating{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;
+  margin-top:14px;font-size:13.5px;color:var(--text-2);text-align:center;
+}
+.stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.rating b{color:var(--text);font-weight:600}
+
+/* ---------- Placeholders visuels (photos, vidéos manquantes) ---------- */
+.ph{
+  border:1px dashed var(--line-strong);border-radius:var(--radius);
+  background:repeating-linear-gradient(135deg,#0D0C0A 0 12px,#12110D 12px 24px);
+  color:var(--text-3);font-size:13px;font-weight:600;line-height:1.4;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:16px;
+}
+.ph b{color:var(--gold);font-weight:600}
+
+/* ---------- Apparition au scroll : légère, une seule fois ---------- */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+.js .reveal.vu{opacity:1;transform:none}
+
+/* ============================================================
+   BANDEAU DU HAUT
+   ============================================================ */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  padding:11px 20px;
+  background:rgba(5,5,5,.96);
+  border-bottom:1px solid var(--line);
+  color:var(--text);
+  font-size:13px;font-weight:600;line-height:1.45;text-align:center;
+}
+.topbar::before{
+  content:"";display:inline-block;width:6px;height:6px;margin-right:9px;
+  background:var(--gold);vertical-align:.15em;
+}
+.topbar--alerte::before{background:var(--red)}
+
+/* ============================================================
+   1. HERO
+   ============================================================ */
+.hero{padding-top:30px;padding-bottom:120px}
+.hero-grid{display:flex;flex-direction:column;gap:30px}
+.hero-copy{display:flex;flex-direction:column;gap:20px;align-items:center;text-align:center}
+
+.identity{display:flex;align-items:center;gap:11px}
+.avatar{
+  width:46px;height:46px;border-radius:50%;flex:none;
+  display:grid;place-items:center;
+  background:var(--surface-2);color:var(--gold);
+  font-family:var(--font-title);font-weight:800;font-size:15px;letter-spacing:.02em;
+  box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--gold);
+  margin:3px;object-fit:cover;
+}
+.identity-name{display:flex;align-items:center;gap:5px;font-weight:700;color:var(--text);font-size:15px}
+.verified{width:16px;height:16px;flex:none}
+.identity-sub{font-size:13px;color:var(--text-2);text-align:left}
+.identity-sub b{color:var(--text);font-weight:600}
+
+.h1-suite{
+  display:block;margin-top:14px;
+  font-family:var(--font-body);text-transform:none;
+  font-size:.56em;font-weight:600;letter-spacing:-.005em;line-height:1.3;
+  color:var(--text-2);
+}
+.h1-suite em{font-style:normal;color:var(--gold)}
+
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 13px;border:1px solid var(--line-strong);border-radius:999px;
+  font-size:13px;font-weight:600;color:var(--text);
+}
+.tag-check{color:var(--gold);font-weight:700}
+.tag--live{border-color:rgba(229,72,77,.45)}
+.tag--live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none}
+
+.hero-media{display:flex;flex-direction:column;gap:16px}
+
+/* Les VSL. Le cadre reprend le format des fichiers (9:16) : à vérifier
+   quand la vidéo sera fournie, voir README. */
+.vsl{
+  position:relative;
+  aspect-ratio:9/16;
+  width:100%;max-width:400px;margin-inline:auto;
+  border-radius:var(--radius-lg);overflow:hidden;
+  background:#000;
+  border:1px solid var(--line-strong);
+}
+.vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vsl-vide{position:absolute;inset:0;z-index:4;border:0;border-radius:0;display:none}
+.vsl--vide .vsl-vide{display:flex}
+.vsl--vide .vsl-play,.vsl--vide .vsl-clic,.vsl--vide .vsl-son,.vsl--vide .vsl-muet{display:none !important}
+
+.vsl-play{
+  position:absolute;inset:0;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  border:0;cursor:pointer;
+  background:linear-gradient(180deg,rgba(5,5,5,.25),rgba(5,5,5,.7));
+  color:var(--text);font-family:var(--font-body);
+}
+.vsl-play[hidden]{display:none}
+.rond{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--gold-pale);color:var(--on-gold);
+  display:grid;place-items:center;
+  transition:transform .2s ease;
+}
+.rond svg{width:26px;height:26px}
+.vsl-play:hover .rond{transform:scale(1.05)}
+.vsl-play-txt{font-size:14px;font-weight:600}
+
+.vsl-clic{
+  position:absolute;inset:0;z-index:1;
+  border:0;background:transparent;cursor:pointer;
+  display:grid;place-items:center;
+}
+.vsl-clic-icone{
+  width:60px;height:60px;border-radius:50%;
+  background:rgba(5,5,5,.66);color:var(--text);
+  display:grid;place-items:center;
+  opacity:0;transform:scale(.85);
+  transition:opacity .25s ease, transform .25s ease;
+  pointer-events:none;
+}
+.vsl-clic-icone.vu{opacity:1;transform:scale(1)}
+.vsl-clic-icone svg{width:24px;height:24px}
+
+/* Le calque du démarrage automatique : la vidéo part en sourdine, ce
+   calque rend le son au premier clic. */
+.vsl-muet{
+  position:absolute;inset:0;z-index:3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  border:0;cursor:pointer;padding:20px;
+  background:linear-gradient(180deg,rgba(5,5,5,.2),rgba(5,5,5,.62));
+  color:var(--text);font-family:var(--font-body);text-align:center;
+}
+.vsl-muet[hidden]{display:none}
+.vsl-muet .rond{margin-bottom:10px}
+.vsl-muet-txt{font-family:var(--font-title);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.02em}
+.vsl-muet-sous{font-size:14px;font-weight:500;color:var(--text)}
+
+/* Le rattrapage du son, quand le mobile démarre malgré tout en sourdine */
+.vsl-son{
+  position:absolute;left:50%;bottom:16px;transform:translateX(-50%);
+  z-index:3;display:flex;align-items:center;gap:8px;
+  border:0;border-radius:999px;padding:10px 17px;
+  background:var(--gold-pale);color:var(--on-gold);
+  font-family:var(--font-body);font-size:13.5px;font-weight:700;
+  cursor:pointer;white-space:nowrap;
+}
+.vsl-son[hidden]{display:none}
+.vsl-son svg{width:17px;height:17px;flex:none}
+
+.vsl-fin{
+  margin:0;padding:12px 16px;border-radius:var(--radius);
+  border:1px solid rgba(246,201,68,.4);color:var(--text);
+  font-size:14px;font-weight:600;text-align:center;
+}
+
+/* ============================================================
+   1 bis / 1 ter. MODE CONFIRMATION  (index.html?confirmation=1)
+   ------------------------------------------------------------
+   Même page de vente : seuls le bandeau du haut et le hero
+   changent. Les CTA du reste de la page sont retirés pour qu'un
+   lead déjà enregistré ne remplisse pas le formulaire deux fois.
+   ============================================================ */
+.confirm-only{display:none}
+body.is-confirmation .confirm-only{display:block}
+body.is-confirmation .default-only{display:none}
+body.is-confirmation [data-open-modal],
+body.is-confirmation .cta-note,
+body.is-confirmation .rating,
+body.is-confirmation .recap,
+body.is-confirmation .urgency{display:none}
+
+.confirm-label{
+  font-family:var(--font-title);font-weight:800;font-size:14px;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--text);text-align:center;
+}
+.confirm-label span{color:var(--gold)}
+.confirm-steps{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-direction:column;
+  border-top:1px solid var(--line);
+}
+.confirm-steps li{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:15px;line-height:1.5;color:var(--text);text-align:left;
+}
+.confirm-steps li::before{content:"→";color:var(--gold);font-weight:700;flex:none}
+
+/* La suite, en trois temps : une ligne verticale relie les étapes */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{
+  content:"";position:absolute;left:21px;top:8px;bottom:8px;
+  width:1px;background:var(--line-strong);
+}
+.timeline li{position:relative;display:flex;gap:20px;padding:0 0 30px}
+.timeline li:last-child{padding-bottom:0}
+.timeline-num{
+  position:relative;flex:none;
+  width:43px;height:43px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--bg);border:1px solid var(--gold);color:var(--gold);
+  font-family:var(--font-title);font-weight:800;font-size:16px;
+}
+.timeline h3{margin:9px 0 6px}
+.timeline p{font-size:15px}
+
+/* ============================================================
+   2. STATS
+   ============================================================ */
+.stats{padding:46px 0}
+.stats-row{display:grid;grid-template-columns:1fr 1fr}
+.stat{padding:4px 14px;text-align:center}
+.stat + .stat{border-left:1px solid var(--line-strong)}
+.stat b{
+  display:block;
+  font-family:var(--font-title);font-weight:900;
+  font-size:clamp(34px,10vw,46px);line-height:1;letter-spacing:-.03em;
+  color:var(--gold);white-space:nowrap;
+}
+.stat span{display:block;margin:10px auto 0;font-size:13.5px;line-height:1.4;color:var(--text-2);max-width:18ch}
+
+/* ============================================================
+   3. OFFRE — la carte au contour lumineux (signature n°3)
+   ============================================================ */
+.halo{
+  position:relative;
+  background:linear-gradient(180deg,#14120A 0%,var(--surface) 38%,#0A0907 100%);
+  border:1.5px solid var(--halo);
+  border-radius:20px;
+  box-shadow:0 0 0 1px rgba(239,219,77,.08),0 0 34px rgba(239,219,77,.16),0 0 90px rgba(239,219,77,.07);
+}
+.offer-card{padding:30px 22px 26px}
+.offer-head{text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;margin-bottom:26px}
+.offer-head h2{font-size:clamp(28px,8vw,40px)}
+.offer-head p{font-size:15px;max-width:34ch}
+
+.offer-list{list-style:none;margin:0;padding:0;counter-reset:mod}
+.offer-list li{
+  counter-increment:mod;
+  display:flex;align-items:center;gap:14px;
+  padding:15px 0;border-bottom:1px solid var(--line);
+  line-height:1.45;
+}
+.offer-list li::before{
+  content:counter(mod,decimal-leading-zero);
+  flex:none;width:24px;
+  font-family:var(--font-title);font-weight:800;font-size:12px;color:var(--text-3);
+}
+.offer-list .label{flex:1;min-width:0;color:var(--text);font-weight:500;font-size:15px}
+.inclus{
+  flex:none;
+  border:1px solid rgba(246,201,68,.55);color:var(--gold);
+  border-radius:999px;padding:4px 11px;
+  font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+
+.recap{
+  margin-top:24px;padding-top:20px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+}
+.recap-k{
+  font-family:var(--font-title);font-weight:800;text-transform:uppercase;
+  color:var(--text);font-size:15px;letter-spacing:.02em;line-height:1.3;
+}
+.recap-k small{
+  display:block;margin-top:4px;
+  font-family:var(--font-body);text-transform:none;letter-spacing:0;
+  font-size:13px;font-weight:500;color:var(--text-2);
+}
+.recap-v{
+  flex:none;font-family:var(--font-title);font-weight:900;
+  font-size:clamp(50px,15vw,64px);line-height:.9;letter-spacing:-.04em;
+  color:var(--gold);
+}
+.urgency{
+  margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
+  text-align:center;color:var(--text-3);font-size:13px;line-height:1.5;
+}
+
+/* Une preuve collée au bouton : la capture en vignette, le chiffre, la phrase */
+.preuve{
+  display:flex;align-items:center;gap:14px;
+  margin-top:18px;padding:12px;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);
+  text-align:left;width:100%;cursor:zoom-in;
+}
+.preuve img{width:64px;height:64px;object-fit:cover;object-position:center 30%;border-radius:6px;flex:none}
+.preuve b{
+  display:block;font-family:var(--font-title);font-weight:800;font-size:18px;
+  color:var(--gold);letter-spacing:-.01em;line-height:1.1;
+}
+.preuve span{display:block;margin-top:3px;font-size:13.5px;line-height:1.4;color:var(--text-2)}
+
+/* ============================================================
+   3 bis. LES ÉTAPES DÉBLOQUÉES — CONFIRMATION
+   ============================================================ */
+.unlock{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.unlock li{
+  display:grid;grid-template-columns:auto 1fr auto;gap:6px 18px;align-items:start;
+  padding:22px 0;border-bottom:1px solid var(--line);
+}
+.unlock-num{
+  grid-row:1 / 3;
+  font-family:var(--font-title);font-weight:900;font-size:40px;line-height:.9;
+  color:var(--gold-deep);letter-spacing:-.04em;
+}
+.unlock h3{margin-top:4px}
+.unlock p{grid-column:2 / 4;font-size:15px}
+.unlock .inclus{margin-top:2px}
+
+/* ============================================================
+   4. TICKER
+   ============================================================ */
+.ticker{
+  overflow:hidden;padding:16px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--surface);
+}
+.ticker-track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.ticker-track > div{display:flex;flex:none}
+.ticker-item{
+  display:inline-block;
+  padding:0 0 0 22px;white-space:nowrap;
+  font-size:14.5px;font-weight:500;color:var(--text);
+}
+.ticker-item b{font-family:var(--font-title);font-weight:800;color:var(--gold);letter-spacing:-.01em}
+.ticker-item::after{content:"";display:inline-block;vertical-align:.2em;width:5px;height:5px;margin-left:22px;background:var(--gold-deep);transform:rotate(45deg)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   5. POURQUOI JE DONNE ACCÈS À TOUT ÇA
+   ============================================================ */
+.byline{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.byline .avatar{width:44px;height:44px}
+.byline b{display:block;color:var(--text);font-size:15px;font-weight:700}
+.byline span{font-size:13px;color:var(--text-2)}
+
+/* Trois tirages : deux photos inclinées encadrant le téléphone */
+.photo-stage{display:flex;align-items:center;justify-content:center;margin:34px 0 8px;padding:10px 0}
+.ps{margin:0;border-radius:14px;overflow:hidden;border:5px solid #1B1914;background:#1B1914}
+.ps .ph{height:100%;border:0;border-radius:0;font-size:11.5px;padding:10px}
+.ps--left,.ps--right{width:36%;aspect-ratio:3/4;z-index:1}
+.ps--left{transform:rotate(-6deg) translateX(8%)}
+.ps--right{transform:rotate(6deg) translateX(-8%)}
+.ps--phone{width:40%;aspect-ratio:9/16;z-index:2;border-width:6px;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+
+.prose p + p{margin-top:15px}
+.prose p{font-size:16.5px}
+.citation{
+  margin:24px 0;padding:2px 0 2px 18px;border-left:3px solid var(--gold);
+  font-family:var(--font-title);font-weight:800;text-transform:uppercase;
+  font-size:clamp(18px,5vw,21px);line-height:1.3;color:var(--text);
+}
+
+.plan-steps{list-style:none;margin:26px 0;padding:0;display:flex;flex-direction:column;gap:18px}
+.plan-steps li{display:flex;gap:14px;align-items:flex-start}
+.plan-steps .n{
+  flex:none;width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--gold-pale);color:var(--on-gold);
+  font-family:var(--font-title);font-weight:800;font-size:13px;
+}
+.plan-steps li > div{flex:1;font-size:15.5px;line-height:1.55}
+.plan-steps b{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+
+/* ============================================================
+   6. RÉSULTATS
+   ============================================================ */
+/* Les captures, comme des pièces versées au dossier : l'image, puis
+   le montant et ce qu'il représente. */
+.wall{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.piece{margin:0;display:flex;flex-direction:column;cursor:zoom-in;background:none;border:0;padding:0;text-align:left}
+.piece img{
+  width:100%;height:auto;border-radius:var(--radius);
+  border:1px solid var(--line);
+}
+.piece figcaption{padding:10px 2px 0}
+.piece b{
+  display:block;font-family:var(--font-title);font-weight:800;
+  font-size:19px;line-height:1.1;color:var(--gold);letter-spacing:-.01em;
+}
+.piece span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--text-2)}
+.piece--une{grid-column:1 / -1}
+.piece--une img{aspect-ratio:646/520;object-fit:cover;object-position:top}
+.piece--une b{font-size:26px}
+
+.sub-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin:52px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.sub-head h3{font-size:15px;letter-spacing:.04em}
+.sub-head span{font-size:13px;color:var(--text-3)}
+
+/* Les témoignages vidéo, verticaux, défilés au pouce sur mobile */
+.clips{
+  display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:12px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  margin:0 -20px;padding:0 20px 6px;scroll-padding-inline:20px;
+  scrollbar-width:none;
+}
+.clips::-webkit-scrollbar{display:none}
+.clip{scroll-snap-align:start;margin:0}
+.clip-cadre{
+  position:relative;aspect-ratio:9/16;
+  border-radius:var(--radius-lg);overflow:hidden;background:#000;
+  border:1px solid var(--line);
+}
+.clip video{width:100%;height:100%;object-fit:cover}
+.clip-play{
+  position:absolute;inset:0;z-index:1;border:0;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;
+  padding:18px;
+  background:linear-gradient(180deg,rgba(5,5,5,0) 45%,rgba(5,5,5,.85) 100%);
+  color:var(--text);text-align:left;
+}
+.clip-play .rond{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px}
+.clip-play .rond svg{width:22px;height:22px}
+.clip-play[hidden]{display:none}
+.clip-duree{
+  position:absolute;top:12px;right:12px;
+  padding:3px 8px;border-radius:4px;background:rgba(5,5,5,.72);
+  font-size:12px;font-weight:600;color:var(--text);
+}
+.clip figcaption{padding:12px 2px 0}
+.clip figcaption b{
+  display:block;font-family:var(--font-title);font-weight:800;text-transform:uppercase;
+  font-size:15px;color:var(--text);letter-spacing:.01em;line-height:1.2;
+}
+.clip figcaption b em{font-style:normal;color:var(--gold)}
+.clip figcaption span{display:block;margin-top:5px;font-size:13.5px;line-height:1.45;color:var(--text-2)}
+
+.mention{margin-top:26px;font-size:12.5px;color:var(--text-3);text-align:center;line-height:1.5}
+
+/* ============================================================
+   7. CTA INTERMÉDIAIRE
+   ============================================================ */
+.mid{border-top:1px solid var(--line)}
+.mid-quote{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;
+  margin-bottom:28px;
+}
+.mid-quote img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center 22%;border:2px solid var(--gold)}
+.mid-quote blockquote{
+  margin:0;font-family:var(--font-title);font-weight:800;text-transform:uppercase;
+  font-size:clamp(17px,4.8vw,20px);line-height:1.3;color:var(--text);
+}
+.mid-quote blockquote em{font-style:normal;color:var(--gold)}
+.mid-quote cite{display:block;margin-top:6px;font-family:var(--font-body);font-style:normal;text-transform:none;font-weight:500;font-size:13px;color:var(--text-2)}
+
+.social-proof{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
+.avatars{display:flex}
+.avatars img,.avatars span{
+  width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:center 22%;
+  border:2px solid var(--bg);margin-left:-10px;
+}
+.avatars :first-child{margin-left:0}
+.avatars span{display:grid;place-items:center;background:var(--gold-pale);color:var(--on-gold);font-weight:700;font-size:15px}
+.social-proof p{font-size:13.5px;color:var(--text-2);text-align:center}
+.social-proof p b{color:var(--text);font-weight:600}
+
+/* ============================================================
+   8. LES 3 ÉTAPES — de zéro à 1 000 €
+   ============================================================ */
+.steps{list-style:none;margin:0 0 34px;padding:0;display:flex;flex-direction:column;gap:14px}
+.step{padding:24px 22px}
+.step-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.step-n{
+  font-family:var(--font-title);font-weight:900;font-size:44px;line-height:.85;
+  color:var(--gold);letter-spacing:-.04em;
+}
+.step-k{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3)}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{font-size:15px}
+.step--but h3 .or{color:var(--gold)}
+
+/* ============================================================
+   INTERVIEWS YOUTUBE
+   ============================================================ */
+.yt-grid{display:flex;flex-direction:column;gap:16px}
+.yt-rest{
+  display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  margin:0 -20px;padding:0 20px 6px;scroll-padding-inline:20px;scrollbar-width:none;
+}
+.yt-rest::-webkit-scrollbar{display:none}
+.yt{margin:0;scroll-snap-align:start}
+.yt-cadre{
+  position:relative;aspect-ratio:16/9;overflow:hidden;
+  border-radius:var(--radius);background:#000;border:1px solid var(--line);
+}
+.yt-cadre iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-btn{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:#000}
+.yt-btn img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .2s ease}
+.yt-btn:hover img{opacity:1}
+.yt-btn .rond{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px}
+.yt-btn .rond svg{width:21px;height:21px}
+.yt figcaption{padding:11px 2px 0}
+.yt figcaption b{
+  display:block;font-family:var(--font-title);font-weight:800;font-size:18px;
+  color:var(--gold);letter-spacing:-.01em;line-height:1.15;
+}
+.yt figcaption span{display:block;margin-top:3px;font-size:13.5px;color:var(--text-2);line-height:1.4}
+.yt--une figcaption b{font-size:24px}
+
+/* ============================================================
+   9. FAQ
+   ============================================================ */
+.faq{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+details summary{
+  list-style:none;cursor:pointer;position:relative;
+  padding:20px 44px 20px 0;
+  font-family:var(--font-body);font-weight:600;font-size:16.5px;
+  color:var(--text);line-height:1.4;
+  -webkit-tap-highlight-color:transparent;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:"";position:absolute;right:4px;top:50%;
+  width:14px;height:14px;margin-top:-7px;
+  background:
+    linear-gradient(var(--gold),var(--gold)) center/14px 2px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) center/2px 14px no-repeat;
+  transition:transform .2s ease;
+}
+details[open] summary::after{transform:rotate(45deg)}
+details .answer{padding:0 0 22px;font-size:15.5px;line-height:1.62}
+
+/* ============================================================
+   10. CTA FINAL
+   ============================================================ */
+.final{text-align:center;padding-bottom:150px}
+.final .stack{align-items:center}
+.final-prix{
+  font-family:var(--font-title);font-weight:900;
+  font-size:clamp(76px,24vw,112px);line-height:.9;letter-spacing:-.05em;
+  color:var(--gold);margin:6px 0 2px;
+}
+.final-prix-note{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-2)}
+.final-list{
+  list-style:none;margin:10px auto 6px;padding:0;max-width:340px;
+  display:flex;flex-direction:column;gap:12px;text-align:left;
+}
+.final-list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;font-weight:500;color:var(--text);line-height:1.4}
+.final-list li::before{content:"✓";color:var(--gold);font-weight:700;flex:none}
+.final-preuves{
+  display:flex;justify-content:center;gap:0;margin:6px 0 4px;
+  border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden;
+  background:rgba(5,5,5,.5);
+}
+.final-preuves div{padding:12px 14px;text-align:center}
+.final-preuves div + div{border-left:1px solid var(--line-strong)}
+.final-preuves b{display:block;font-family:var(--font-title);font-weight:800;font-size:17px;color:var(--text);line-height:1.1}
+.final-preuves span{display:block;margin-top:3px;font-size:12px;color:var(--text-2);line-height:1.3}
+.final .cta{max-width:420px}
+.final .rating{color:var(--text)}
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-bottom:16px}
+.footer-links a{color:var(--text-2);text-decoration:none;font-size:13.5px}
+.footer-links a:hover{color:var(--gold)}
+.copyright{font-size:12.5px;color:var(--text-3);margin-bottom:24px}
+.disclaimer{border-top:1px solid var(--line);padding-top:22px;text-align:left}
+.disclaimer b{display:block;color:var(--text);font-size:13px;font-weight:700;margin:16px 0 6px}
+.disclaimer b:first-child{margin-top:0}
+.disclaimer p,.disclaimer li{font-size:12px;line-height:1.6;color:var(--text-3)}
+.disclaimer p + p{margin-top:8px}
+.disclaimer ul{margin:8px 0;padding-left:17px}
+.disclaimer li{margin-bottom:3px}
+
+/* ============================================================
+   MODALE
+   ============================================================ */
+.overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.72);
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;visibility:hidden;
+  transition:opacity .25s ease, visibility .25s ease;
+}
+.overlay.open{opacity:1;visibility:visible}
+.modal{
+  background:var(--surface);
+  border:1px solid var(--line-strong);border-bottom:0;
+  width:100%;max-width:var(--maxw);
+  border-radius:20px 20px 0 0;
+  padding:10px 20px calc(26px + env(safe-area-inset-bottom));
+  transform:translateY(100%);
+  transition:transform .3s cubic-bezier(.22,1,.36,1);
+  max-height:92vh;overflow-y:auto;
+}
+.overlay.open .modal{transform:translateY(0)}
+.grabber{width:42px;height:4px;border-radius:999px;background:var(--line-strong);margin:6px auto 16px}
+.modal h3{font-size:21px;margin-bottom:8px}
+.modal h3 .or{color:var(--gold)}
+#formView h3,#formView .sub{padding-right:44px}
+.modal .sub{font-size:14.5px;margin-bottom:22px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px}
+.field input,.phone-row select{
+  width:100%;padding:14px 16px;font-size:16px;
+  font-family:var(--font-body);font-weight:500;color:var(--text);
+  background:var(--bg);
+  border:1px solid var(--line-strong);border-radius:8px;
+  transition:border-color .15s ease;
+}
+.field input::placeholder{color:var(--text-3)}
+.field input:focus,.phone-row select:focus{outline:none;border-color:var(--gold)}
+.modal-close{
+  position:absolute;top:12px;right:0;
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);
+  background:transparent;color:var(--text-2);
+  font-size:16px;cursor:pointer;display:grid;place-items:center;
+}
+.modal-inner{position:relative}
+.phone-row{display:flex;gap:8px}
+.phone-row select{
+  flex:none;width:128px;padding:14px 26px 14px 10px;font-size:15px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A39D90' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;background-size:15px;
+}
+.phone-row input{flex:1;min-width:0}
+.field-hint{margin-top:7px;font-size:12.5px;color:var(--text-3);font-variant-numeric:tabular-nums}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-error{
+  border:1px solid rgba(229,72,77,.5);background:rgba(229,72,77,.08);color:#FF8A8D;
+  border-radius:8px;padding:11px 14px;margin-bottom:12px;
+  font-size:13.5px;font-weight:500;line-height:1.45;
+}
+.cta[aria-busy="true"]{opacity:.7;pointer-events:none}
+/* L'attestation du numéro. Toute la ligne est cliquable : sur mobile, une
+   case de seize pixels rate une fois sur trois. */
+.atteste{
+  display:flex;align-items:flex-start;gap:11px;
+  margin:4px 0 6px;padding:12px 14px;
+  border:1px solid var(--line-strong);border-radius:8px;
+  cursor:pointer;transition:border-color .15s;
+}
+.atteste input{flex:none;width:20px;height:20px;margin-top:1px;accent-color:var(--gold);cursor:pointer}
+.atteste span{font-size:12.5px;line-height:1.5;color:var(--text-2)}
+.atteste:has(input:checked){border-color:var(--gold)}
+.atteste:has(input:checked) span{color:var(--text)}
+.atteste.manque{border-color:var(--red)}
+.atteste.manque span{color:#FF8A8D}
+.legal{font-size:11.5px;color:var(--text-3);text-align:center;margin-top:14px;line-height:1.5}
+[hidden]{display:none !important}
+
+/* ---------- Agrandissement des captures ---------- */
+.zoom{
+  border:0;padding:0;background:transparent;max-width:min(92vw,560px);max-height:92vh;
+}
+.zoom::backdrop{background:rgba(0,0,0,.86)}
+.zoom img{max-height:88vh;width:auto;margin:0 auto;border-radius:var(--radius)}
+.zoom button{
+  display:block;margin:12px auto 0;padding:9px 18px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line-strong);background:var(--bg);color:var(--text);font-size:14px;font-weight:600;
+}
+
+/* ---------- Tablette : modale centrée ---------- */
+@media (min-width:600px){
+  .overlay{align-items:center;padding:24px}
+  .modal{border-radius:20px;border-bottom:1px solid var(--line-strong);transform:translateY(24px) scale(.97);padding:26px 28px;max-width:440px}
+  .overlay.open .modal{transform:translateY(0) scale(1)}
+  .grabber{display:none}
+  .clips{grid-auto-columns:46%}
+  .yt-rest{grid-auto-columns:46%}
+}
+
+/* ============================================================
+   DESKTOP — vraie mise en page large
+   ============================================================ */
+@media (min-width:1000px){
+  :root{--maxw:1120px;--pad-y:112px}
+  body{font-size:17px}
+  .in{padding:0 40px}
+  h1{font-size:clamp(42px,3.7vw,54px);line-height:1.1}
+  h2{font-size:clamp(34px,3vw,44px)}
+  h3{font-size:19px}
+  .lead{font-size:18.5px}
+  .head{margin-bottom:52px}
+
+  .cta{max-width:400px;font-size:16px;padding:21px 28px;margin-inline:auto}
+
+  /* 1. Hero : texte à gauche, vidéo à droite */
+  .hero{padding-top:72px;padding-bottom:110px}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:72px;align-items:center}
+  .hero-copy{align-items:flex-start;text-align:left;gap:24px}
+  .hero-copy p{font-size:18.5px;max-width:36ch}
+  .hero-media .cta{max-width:none}
+  .vsl{max-width:360px}
+
+  .timeline-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:start}
+  .timeline-wrap .head{position:sticky;top:90px;text-align:left;align-items:flex-start}
+
+  /* 2. Stats */
+  .stats{padding:72px 0}
+  .stats-row{max-width:760px;margin:0 auto}
+  .stat b{font-size:72px}
+  .stat span{font-size:15.5px;max-width:24ch}
+
+  /* 3. Offre */
+  .offer .in{max-width:820px}
+  .offer-card{padding:52px 60px 44px}
+  .offer-list .label{font-size:16px}
+  .offer-cta{max-width:400px;margin:28px auto 0}
+
+  /* 3 bis */
+  .unlock{max-width:820px;margin:0 auto}
+  .unlock li{grid-template-columns:90px 1fr auto;padding:30px 0}
+  .unlock-num{font-size:60px}
+
+  .ticker{padding:20px 0}
+  .ticker-item{font-size:16px;padding-left:30px}
+  .ticker-item::after{margin-left:30px}
+
+  /* 5. Pourquoi : texte à gauche, photos à droite (l'inverse du hero) */
+  .why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:80px;align-items:start}
+  .why-left{position:sticky;top:90px}
+  .photo-stage{margin-top:40px}
+  .why-right .cta{margin-left:0;max-width:460px}
+  .why-right .rating{justify-content:flex-start}
+
+  /* 6. Résultats */
+  .wall{grid-template-columns:repeat(4,1fr);gap:28px 20px;align-items:start}
+  .piece--une{grid-column:1 / 3;grid-row:1 / 3}
+  .piece--une img{aspect-ratio:auto}
+  .piece--une b{font-size:34px}
+  .clips{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0 auto;padding:0;gap:20px;max-width:900px}
+
+  /* 7. CTA intermédiaire */
+  .mid .in{max-width:720px}
+  .mid-quote{grid-template-columns:auto 1fr;gap:24px}
+  .mid-quote img{width:92px;height:92px}
+
+  /* 8. Étapes : un escalier qui monte, de zéro à 1 000 € */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;margin-bottom:52px}
+  .steps li:nth-child(1){margin-top:96px}
+  .steps li:nth-child(2){margin-top:48px}
+  .step{padding:32px 28px}
+  .step-n{font-size:60px}
+
+  /* Interviews : une grande, les quatre autres en grille */
+  .yt-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
+  .yt-rest{grid-auto-flow:row;grid-template-columns:1fr 1fr;grid-auto-columns:auto;overflow:visible;margin:0;padding:0;gap:20px 18px}
+  .yt--une figcaption b{font-size:30px}
+
+  /* 9. FAQ : titre à gauche, questions à droite */
+  .faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}
+  .faq-grid .head{position:sticky;top:90px;text-align:left;align-items:flex-start}
+  details summary{font-size:18px;padding:24px 48px 24px 0}
+  details .answer{font-size:16.5px;padding-bottom:26px}
+
+  /* 10. CTA final */
+  .final{padding-bottom:120px}
+  .final-prix{font-size:150px}
+
+  footer{padding:64px 0 72px}
+  .footer-inner{max-width:880px;margin:0 auto}
+}
+
+@media (min-width:1400px){ :root{--maxw:1200px} }
+
+/* ---------- Très petits écrans ---------- */
+@media (max-width:360px){
+  .in{padding:0 16px}
+  .clips,.yt-rest{margin:0 -16px;padding:0 16px 6px}
+  .offer-list li{gap:10px}
+  .offer-list .label{font-size:14px}
+  .stat b{font-size:30px}
+  .final-preuves div{padding:10px 8px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{animation:none}
+  .js .reveal{opacity:1;transform:none}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important}
+}
+</style>
+</head>
+<body>
+
+<script>
+  /* Placé ici pour que le mode soit actif dès le premier rendu (aucun clignotement). */
+  if (new URLSearchParams(location.search).get('confirmation') === '1'){
+    document.body.classList.add('is-confirmation');
+  }
+  document.body.classList.add('js');
+</script>
+
+<div class="topbar default-only">
+  Le programme ne restera pas ouvert éternellement, profites-en tant que tu peux y accéder.
+</div>
+
+<div class="topbar topbar--alerte confirm-only">
+  Attends : ta place n'est pas encore confirmée. Garde ton téléphone à portée de main.
+</div>
+
+<main>
+
+  <!-- ========== 1. HERO ========== -->
+  <section class="section hero fondu-or default-only">
+    <div class="in hero-grid">
+      <div class="hero-copy">
+
+        <div class="identity">
+          <!-- [À COMPLÉTER] photo de Maxence : remplacer ce monogramme par
+               <img class="avatar" src="img/maxence.webp" alt="Maxence Delmas" width="46" height="46"> -->
+          <span class="avatar" aria-hidden="true">MD</span>
+          <div>
+            <div class="identity-name">
+              Maxence Delmas
+              <svg class="verified" viewBox="0 0 24 24" fill="none" aria-label="Compte vérifié">
+                <path d="M12 1.5l2.6 1.9 3.2-.2.9 3.1 2.6 1.9-1.3 2.9 1.3 2.9-2.6 1.9-.9 3.1-3.2-.2L12 22.5l-2.6-1.9-3.2.2-.9-3.1L2.7 15.8 4 12.9 2.7 10l2.6-1.9.9-3.1 3.2.2L12 1.5z" fill="#F6C944"/>
+                <path d="M8.2 12.3l2.5 2.5 5.1-5.1" stroke="#0A0905" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="identity-sub"><b class="num">+12&nbsp;000</b> membres dans la communauté</div>
+          </div>
+        </div>
+
+        <h1>De zéro à tes premiers <span class="hl num">1&nbsp;000&nbsp;€</span> avec une influenceuse IA, dès le premier mois
+          <span class="h1-suite">+ accède <em>gratuitement</em> à mon programme</span></h1>
+
+        <p>Regarde la vidéo ci-dessous pour comprendre comment ça marche.</p>
+
+        <span class="tag"><span class="tag-check">✓</span> Aucune expérience requise</span>
+      </div>
+
+      <div class="hero-media">
+        <div class="vsl">
+          <!-- [À COMPLÉTER] VSL de vente : remplacer VIMEO_ID_VENTE par l'identifiant Vimeo -->
+          <iframe
+            class="vsl-cadre"
+            id="vslVente"
+            data-auto
+            src="https://player.vimeo.com/video/VIMEO_ID_VENTE?controls=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;dnt=1&amp;autoplay=1&amp;muted=1&amp;playsinline=1"
+            title="Comment créer ton influenceuse IA et faire tes premiers 1 000 €"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+          <div class="ph vsl-vide">VSL de vente<b>[À COMPLÉTER]</b></div>
+
+          <button type="button" class="vsl-clic" aria-label="Mettre en pause ou reprendre">
+            <span class="vsl-clic-icone" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="vsl-son" hidden>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4zm-2.5-9v2.1a7 7 0 010 13.8V21a9 9 0 000-18z"/></svg>
+            Activer le son
+          </button>
+
+          <button type="button" class="vsl-muet" hidden>
+            <span class="rond">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4zm-2.5-9v2.1a7 7 0 010 13.8V21a9 9 0 000-18z"/></svg>
+            </span>
+            <span class="vsl-muet-txt">Ta vidéo a démarré</span>
+            <span class="vsl-muet-sous">Clique pour activer le son</span>
+          </button>
+
+          <button type="button" class="vsl-play" aria-label="Lancer la vidéo">
+            <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+            <span class="vsl-play-txt">Lancer la vidéo</span>
+          </button>
+        </div>
+
+        <p class="vsl-fin" hidden>✓ Tu sais tout. Récupère ton accès juste en dessous.</p>
+
+        <button class="cta" data-open-modal>Je réserve mon accès gratuit <span class="cta-fleche">→</span></button>
+        <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span><b class="num">+550</b> élèves formés sur le programme complet</span></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    /* Le lecteur de la page de vente porte son adresse dans le HTML : le
+       navigateur la repère avant même d'avoir fini de lire la page, et la
+       vidéo part aussitôt. En mode confirmation ce hero est masqué — on
+       annule alors la requête, sans quoi on téléchargerait une vidéo que
+       personne ne verra. Même chose tant que l'identifiant Vimeo n'est
+       pas renseigné. */
+    (function(){
+      var f = document.getElementById('vslVente');
+      if (!f) return;
+      if (document.body.classList.contains('is-confirmation') || /VIMEO_ID_/.test(f.getAttribute('src') || '')){
+        f.removeAttribute('src');
+      }
+    })();
+  </script>
+
+  <!-- ========== 1 bis. HERO — MODE CONFIRMATION ========== -->
+  <section class="section hero fondu-or confirm-only">
+    <div class="in hero-grid">
+      <div class="hero-copy">
+
+        <div class="identity">
+          <span class="avatar" aria-hidden="true">MD</span>
+          <div>
+            <div class="identity-name">
+              Maxence Delmas
+              <svg class="verified" viewBox="0 0 24 24" fill="none" aria-label="Compte vérifié">
+                <path d="M12 1.5l2.6 1.9 3.2-.2.9 3.1 2.6 1.9-1.3 2.9 1.3 2.9-2.6 1.9-.9 3.1-3.2-.2L12 22.5l-2.6-1.9-3.2.2-.9-3.1L2.7 15.8 4 12.9 2.7 10l2.6-1.9.9-3.1 3.2.2L12 1.5z" fill="#F6C944"/>
+                <path d="M8.2 12.3l2.5 2.5 5.1-5.1" stroke="#0A0905" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="identity-sub"><b class="num">+12&nbsp;000</b> membres dans la communauté</div>
+          </div>
+        </div>
+
+        <span class="tag tag--live">Ton accès est réservé pour les 10 prochaines minutes</span>
+
+        <h1>Ta demande est enregistrée. <span class="hl">On t'appelle</span> dans les 10 minutes.</h1>
+
+        <p>Un membre de l'équipe va te joindre au numéro que tu as indiqué pour activer ton accès gratuit. Regarde la courte vidéo ci-dessous avant l'appel.</p>
+      </div>
+
+      <div class="hero-media">
+        <p class="confirm-label">À regarder avant l'appel <span>↓</span></p>
+
+        <div class="vsl">
+          <!-- [À COMPLÉTER] VSL de confirmation : remplacer VIMEO_ID_CONFIRMATION -->
+          <iframe
+            class="vsl-cadre"
+            id="vslConfirm"
+            data-src="https://player.vimeo.com/video/VIMEO_ID_CONFIRMATION?controls=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;dnt=1"
+            title="À regarder avant l'appel"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+          <div class="ph vsl-vide">VSL de confirmation<b>[À COMPLÉTER]</b></div>
+
+          <button type="button" class="vsl-clic" aria-label="Mettre en pause ou reprendre">
+            <span class="vsl-clic-icone" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="vsl-son" hidden>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4zm-2.5-9v2.1a7 7 0 010 13.8V21a9 9 0 000-18z"/></svg>
+            Activer le son
+          </button>
+
+          <button type="button" class="vsl-play" aria-label="Lancer la vidéo">
+            <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+            <span class="vsl-play-txt">Lancer la vidéo</span>
+          </button>
+        </div>
+
+        <p class="vsl-fin" hidden>✓ Parfait, tu sais tout. Garde ton téléphone à portée de main.</p>
+
+        <ul class="confirm-steps">
+          <li>Décroche même si tu ne connais pas le numéro.</li>
+          <li>Prévois quinze minutes au calme, de quoi noter.</li>
+          <li>Sans réponse de ta part sous 10 minutes, ta place repart à quelqu'un d'autre.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 1 ter. QUOI FAIRE MAINTENANT — CONFIRMATION ========== -->
+  <section class="section confirm-only">
+    <div class="in timeline-wrap">
+      <div class="head">
+        <span class="eyebrow">La suite</span>
+        <h2>Voici exactement <span class="hl">quoi faire</span> maintenant</h2>
+      </div>
+
+      <ol class="timeline">
+        <li>
+          <span class="timeline-num">1</span>
+          <div>
+            <h3>Décroche l'appel</h3>
+            <p>Un membre de l'équipe t'appelle dans les 10 minutes. Enregistre le numéro et reste joignable : c'est cet appel qui active ton accès.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-num">2</span>
+          <div>
+            <h3>On fait le point ensemble</h3>
+            <p>Pendant l'appel, on regarde où tu en es, le temps que tu peux y mettre, et on te montre par où commencer pour créer ton influenceuse IA.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-num">3</span>
+          <div>
+            <h3>Tu accèdes au programme</h3>
+            <p>Dans la foulée, tu reçois tes accès : tu peux attaquer la première étape le jour même.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== 2. STATS ========== -->
+  <section class="stats">
+    <div class="in">
+      <div class="stats-row">
+        <div class="stat">
+          <b class="num">+550</b>
+          <span>élèves formés sur le programme complet</span>
+        </div>
+        <div class="stat">
+          <b class="num">+12K</b>
+          <span>membres dans la communauté gratuite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. OFFRE ========== -->
+  <section class="section offer" style="padding-top:20px">
+    <div class="in">
+      <div class="halo offer-card reveal">
+        <div class="offer-head">
+          <span class="eyebrow default-only">Programme offert</span>
+          <!-- [À COMPLÉTER] nom de l'offre Starter -->
+          <h2 class="default-only"><span class="ac">[Nom de l'offre — À COMPLÉTER]</span></h2>
+          <p class="default-only">Une partie de mon programme complet à <span class="ac">[X €]</span>, offerte aujourd'hui.</p>
+
+          <span class="eyebrow confirm-only">Tout ce que tu viens de débloquer</span>
+          <h2 class="confirm-only">Une partie de mon programme à <span class="ac">[X €]</span>. <span class="hl">Offert.</span></h2>
+        </div>
+
+        <!-- [À COMPLÉTER] la liste réelle des modules inclus : une ligne par module -->
+        <ul class="offer-list">
+          <li><span class="label"><span class="ac">[Module — À COMPLÉTER]</span></span><span class="inclus">Inclus</span></li>
+          <li><span class="label"><span class="ac">[Module — À COMPLÉTER]</span></span><span class="inclus">Inclus</span></li>
+          <li><span class="label"><span class="ac">[Module — À COMPLÉTER]</span></span><span class="inclus">Inclus</span></li>
+          <li><span class="label"><span class="ac">[Module — À COMPLÉTER]</span></span><span class="inclus">Inclus</span></li>
+          <li><span class="label"><span class="ac">[Module — À COMPLÉTER]</span></span><span class="inclus">Inclus</span></li>
+          <li><span class="label"><span class="ac">[Module — À COMPLÉTER]</span></span><span class="inclus">Inclus</span></li>
+        </ul>
+
+        <div class="recap">
+          <span class="recap-k">Ton prix aujourd'hui<small>Aucune carte bancaire demandée</small></span>
+          <span class="recap-v num">0&nbsp;€</span>
+        </div>
+
+        <p class="urgency">Le programme ne restera pas ouvert éternellement, profites-en tant que tu peux y accéder.</p>
+      </div>
+
+      <div class="default-only offer-cta" style="margin-top:26px">
+        <button class="cta" data-open-modal>Je profite de l'offre <span class="cta-fleche">→</span></button>
+        <button type="button" class="preuve" data-zoom="img/resultat-4552e-un-mois.webp" data-alt="Tableau de revenus d'un élève : 4 552 € de revenu net entre le 29 avril et le 27 mai">
+          <img src="img/resultat-4552e-un-mois.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+          <span><b class="num">4&nbsp;552&nbsp;€ en un mois</b><span>« Constante évolution grâce aux méthodes appliquées », un élève dans la communauté</span></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3 bis. LES ÉTAPES DÉBLOQUÉES — CONFIRMATION ========== -->
+  <section class="section confirm-only rule">
+    <div class="in">
+      <div class="head center">
+        <span class="eyebrow">Le programme</span>
+        <h2>Les trois étapes que tu viens de <span class="hl">débloquer</span></h2>
+        <p class="lead">De ta première image à tes premiers 1&nbsp;000&nbsp;€.</p>
+      </div>
+
+      <ol class="unlock">
+        <li>
+          <span class="unlock-num">01</span>
+          <h3>Créer ton influenceuse&nbsp;IA</h3>
+          <span class="inclus">Inclus</span>
+          <p>Son visage, son style, son univers : une influenceuse cohérente et crédible, qui donne envie de la suivre.</p>
+        </li>
+        <li>
+          <span class="unlock-num">02</span>
+          <h3>La rendre virale</h3>
+          <span class="inclus">Inclus</span>
+          <p>Le bon contenu, au bon rythme, sur les bons réseaux, pour faire monter ses vues et sa communauté.</p>
+        </li>
+        <li>
+          <span class="unlock-num">03</span>
+          <h3>Faire tes premiers 1&nbsp;000&nbsp;€</h3>
+          <span class="inclus">Inclus</span>
+          <p>Transformer cette audience en revenus, avec un objectif clair dès le premier mois.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== 4. TICKER ========== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div>
+        <span class="ticker-item"><b>+550</b> élèves formés</span>
+        <span class="ticker-item">« <b>4&nbsp;237&nbsp;€</b> de CA en 32 jours »</span>
+        <span class="ticker-item"><b>+12&nbsp;000</b> membres</span>
+        <span class="ticker-item">« <b>1&nbsp;907&nbsp;€</b> en 2 jours »</span>
+        <span class="ticker-item">« <b>460&nbsp;€</b> la soirée, nouveau record »</span>
+        <span class="ticker-item">« <b>15&nbsp;421&nbsp;€</b> avec 4 créatrices »</span>
+      </div>
+      <div>
+        <span class="ticker-item"><b>+550</b> élèves formés</span>
+        <span class="ticker-item">« <b>4&nbsp;237&nbsp;€</b> de CA en 32 jours »</span>
+        <span class="ticker-item"><b>+12&nbsp;000</b> membres</span>
+        <span class="ticker-item">« <b>1&nbsp;907&nbsp;€</b> en 2 jours »</span>
+        <span class="ticker-item">« <b>460&nbsp;€</b> la soirée, nouveau record »</span>
+        <span class="ticker-item">« <b>15&nbsp;421&nbsp;€</b> avec 4 créatrices »</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 5. POURQUOI JE DONNE ACCÈS À TOUT ÇA ========== -->
+  <section class="section why">
+    <div class="in why-grid">
+      <div class="why-left">
+        <div class="byline">
+          <span class="avatar" aria-hidden="true">MD</span>
+          <div>
+            <b>Maxence Delmas</b>
+            <span>Influenceuses IA &amp; OFM</span>
+          </div>
+        </div>
+
+        <h2>Pourquoi je donne accès à <span class="hl">tout ça</span>&nbsp;?</h2>
+
+        <!-- [À COMPLÉTER] trois photos de Maxence : deux tirages (3:4) et une capture de son profil (9:16) -->
+        <div class="photo-stage">
+          <figure class="ps ps--left"><div class="ph">Photo de Maxence<b>[À COMPLÉTER]</b></div></figure>
+          <figure class="ps ps--phone"><div class="ph">Capture de son profil<b>[À COMPLÉTER]</b></div></figure>
+          <figure class="ps ps--right"><div class="ph">Photo de Maxence<b>[À COMPLÉTER]</b></div></figure>
+        </div>
+      </div>
+
+      <div class="why-right">
+        <div class="prose">
+          <p>Tu te demandes peut-être : «&nbsp;Comment c'est possible de nous offrir ça gratuitement ? Où est le piège ?&nbsp;»</p>
+          <p><strong>Il n'y en a pas. J'ai simplement intérêt à ce que tu réussisses.</strong></p>
+          <p>Je me suis associé à une entreprise spécialisée dans l'IA, valorisée à plusieurs milliards de dollars, qui me rémunère pour te donner accès à ce contenu. Tout ce dont tu as besoin, c'est de l'outil d'IA que j'utilise au quotidien pour créer mes influenceuses.</p>
+          <p>Mon objectif, ce n'est pas de te vendre quelque chose aujourd'hui : c'est que tu fasses tes premiers euros avec ce programme gratuit. Le jour où ça marche pour toi, tu n'as plus aucune raison d'aller voir ailleurs, et c'est là qu'on gagne tous les deux.</p>
+        </div>
+
+        <ol class="plan-steps">
+          <li>
+            <span class="n">1</span>
+            <div><b>Tu rejoins le programme, gratuitement.</b> Le contenu et l'appel de mise en place : tu y accèdes sans sortir un euro.</div>
+          </li>
+          <li>
+            <span class="n">2</span>
+            <div><b>Tu fais tes premiers 1&nbsp;000&nbsp;€.</b> De quoi financer la suite avec l'argent que ton influenceuse a rapporté, pas avec tes économies.</div>
+          </li>
+          <li>
+            <span class="n">3</span>
+            <div><b>On s'associe.</b> Tu passes sur l'accompagnement complet, et on construit la suite ensemble.</div>
+          </li>
+        </ol>
+
+        <p class="citation">C'est gagnant-gagnant pour tout le monde.</p>
+
+        <button class="cta" data-open-modal>Je veux créer mon influenceuse&nbsp;IA <span class="cta-fleche">→</span></button>
+        <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span>Note de <span class="ac">[À COMPLÉTER]</span>/5 par les membres</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. RÉSULTATS ========== -->
+  <section class="section rule" id="resultats">
+    <div class="in">
+      <div class="head center">
+        <span class="eyebrow">Résultats d'élèves</span>
+        <h2>Ils ont déjà <span class="hl">encaissé</span></h2>
+        <p class="lead">Des captures postées par les élèves dans la communauté, telles quelles. Appuie sur une capture pour l'agrandir.</p>
+      </div>
+
+      <div class="wall">
+        <figure class="piece piece--une reveal" data-zoom="img/resultat-15421e-quatre-creatrices.webp" data-alt="Tableau de revenus d'un élève : 15 421 € sur la période, 28 commandes, 4 créatrices">
+          <img src="img/resultat-15421e-quatre-creatrices.webp" alt="Tableau de revenus d'un élève : 15 421 € sur la période, 28 commandes, 4 créatrices. Message : 10k en 2 jours" width="646" height="770" loading="lazy" decoding="async">
+          <figcaption><b class="num">15&nbsp;421&nbsp;€</b><span>sur la période, avec 4 créatrices. Son message : « 10k en 2 jours ».</span></figcaption>
+        </figure>
+        <figure class="piece reveal" data-zoom="img/resultat-4552e-un-mois.webp" data-alt="Tableau de revenus d'un élève : 4 552 € de revenu net entre le 29 avril et le 27 mai">
+          <img src="img/resultat-4552e-un-mois.webp" alt="Tableau de revenus d'un élève : 4 552 € de revenu net entre le 29 avril et le 27 mai, +50 % sur la période précédente" width="646" height="800" loading="lazy" decoding="async">
+          <figcaption><b class="num">4&nbsp;552&nbsp;€</b><span>de revenu net en un mois, +50&nbsp;%</span></figcaption>
+        </figure>
+        <figure class="piece reveal" data-zoom="img/resultat-1907e-deux-jours.webp" data-alt="Portefeuille Dropp d'un élève : 1 907,09 € de solde, en 2 jours">
+          <img src="img/resultat-1907e-deux-jours.webp" alt="Portefeuille Dropp d'un élève : 1 907,09 € de solde. Message : en 2 jours avec une baleine" width="646" height="773" loading="lazy" decoding="async">
+          <figcaption><b class="num">1&nbsp;907&nbsp;€</b><span>en 2 jours, grâce à un seul gros acheteur</span></figcaption>
+        </figure>
+        <figure class="piece reveal" data-zoom="img/resultat-800e-soiree.webp" data-alt="Tableau de revenus d'un élève : 574 € le 10 mai. Message : petite soirée à 800 €, Dropp + PayPal">
+          <img src="img/resultat-800e-soiree.webp" alt="Tableau de revenus d'un élève : 574 € de revenu net le 10 mai. Message : petite soirée à 800 €, Dropp + PayPal, un seul spender" width="645" height="828" loading="lazy" decoding="async">
+          <figcaption><b class="num">800&nbsp;€</b><span>en une soirée, Dropp et PayPal cumulés</span></figcaption>
+        </figure>
+        <figure class="piece reveal" data-zoom="img/resultat-460e-soiree.webp" data-alt="Tableau de revenus d'un élève : 460 € de revenu net le 7 mai, 11 commandes">
+          <img src="img/resultat-460e-soiree.webp" alt="Tableau de revenus d'un élève : 460 € de revenu net le 7 mai, 11 commandes. Message : nouveau record hier soir" width="646" height="804" loading="lazy" decoding="async">
+          <figcaption><b class="num">460&nbsp;€</b><span>en une soirée, son nouveau record</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="sub-head">
+        <h3>Ils en parlent</h3>
+        <span>3 témoignages vidéo</span>
+      </div>
+
+      <div class="clips">
+        <figure class="clip">
+          <div class="clip-cadre">
+            <video preload="none" playsinline poster="videos/temoignage-4237e-32-jours.webp" width="406" height="720">
+              <source src="videos/temoignage-4237e-32-jours.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="clip-play" aria-label="Lire le témoignage : 4 237 € en 32 jours">
+              <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+            </button>
+            <span class="clip-duree num">0:33</span>
+          </div>
+          <figcaption><b><em class="num">4&nbsp;237&nbsp;€</em> en 32 jours</b><span>« J'avais lancé pas mal de business, ça n'avait jamais fonctionné. J'étais sceptique. »</span></figcaption>
+        </figure>
+        <figure class="clip">
+          <div class="clip-cadre">
+            <video preload="none" playsinline poster="videos/temoignage-formation-complete.webp" width="540" height="960">
+              <source src="videos/temoignage-formation-complete.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="clip-play" aria-label="Lire le témoignage : une formation complète">
+              <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+            </button>
+            <span class="clip-duree num">1:08</span>
+          </div>
+          <figcaption><b>Tout, <em>de A à Z</em></b><span>« Instagram, Telegram, le chatting, les plateformes privées : rien n'est délaissé. »</span></figcaption>
+        </figure>
+        <figure class="clip">
+          <div class="clip-cadre">
+            <video preload="none" playsinline poster="videos/temoignage-se-lancer.webp" width="540" height="960">
+              <source src="videos/temoignage-se-lancer.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="clip-play" aria-label="Lire le témoignage : arrête d'hésiter">
+              <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+            </button>
+            <span class="clip-duree num">0:42</span>
+          </div>
+          <figcaption><b>Arrête <em>d'hésiter</em></b><span>« Si tu ne te lances pas, tu ne sais pas. Je recommande la formation à 100&nbsp;%. »</span></figcaption>
+        </figure>
+      </div>
+
+      <p class="mention">Retours publiés par les membres dans la communauté. Ce sont des cas favorables, pas une moyenne.</p>
+    </div>
+  </section>
+
+  <!-- ========== 7. CTA INTERMÉDIAIRE ========== -->
+  <section class="section mid default-only">
+    <div class="in">
+      <div class="mid-quote reveal">
+        <img src="videos/temoignage-4237e-32-jours.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+        <blockquote>« J'ai généré plus de <em class="num">4&nbsp;237&nbsp;€</em> en seulement 32 jours. »<cite>Un élève, dans son témoignage vidéo</cite></blockquote>
+      </div>
+
+      <button class="cta" data-open-modal>Je profite de l'offre <span class="cta-fleche">→</span></button>
+
+      <div class="social-proof">
+        <div class="avatars" aria-hidden="true">
+          <img src="videos/temoignage-4237e-32-jours.webp" alt="" width="36" height="36" loading="lazy">
+          <img src="videos/temoignage-formation-complete.webp" alt="" width="36" height="36" loading="lazy">
+          <img src="videos/temoignage-se-lancer.webp" alt="" width="36" height="36" loading="lazy">
+          <span>+</span>
+        </div>
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>Rejoins les <b class="num">+12&nbsp;000</b> membres de la communauté</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. LES 3 ÉTAPES ========== -->
+  <section class="section default-only rule">
+    <div class="in">
+      <div class="head center">
+        <span class="eyebrow">3 étapes</span>
+        <h2>De zéro à 1&nbsp;000&nbsp;€ en <span class="hl">3 étapes</span></h2>
+        <p class="lead">Tout commence par un appel : tu réserves ta place, on fait le point avec toi, et tu attaques l'étape&nbsp;1.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="halo step reveal">
+          <div class="step-top"><span class="step-n">01</span><span class="step-k">Créer</span></div>
+          <h3>Crée ton influenceuse&nbsp;IA</h3>
+          <p>Son visage, son style, son univers. Une influenceuse cohérente et crédible, qui donne envie de la suivre.</p>
+        </li>
+        <li class="halo step reveal">
+          <div class="step-top"><span class="step-n">02</span><span class="step-k">Percer</span></div>
+          <h3>Rends-la virale</h3>
+          <p>Le bon contenu, au bon rythme, sur les bons réseaux, pour faire grimper ses vues et sa communauté.</p>
+        </li>
+        <li class="halo step step--but reveal">
+          <div class="step-top"><span class="step-n">03</span><span class="step-k">Encaisser</span></div>
+          <h3>Fais tes premiers <span class="or num">1&nbsp;000&nbsp;€</span></h3>
+          <p>Tu transformes cette audience en revenus, avec un objectif clair : tes premiers 1&nbsp;000&nbsp;€ dès le premier mois.</p>
+        </li>
+      </ol>
+
+      <button class="cta" data-open-modal>Je commence l'étape 1 <span class="cta-fleche">→</span></button>
+      <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span><b class="num">+550</b> élèves sont déjà passés par là</span></div>
+    </div>
+  </section>
+
+  <!-- ========== INTERVIEWS YOUTUBE ========== -->
+  <!-- Aucun lecteur YouTube n'est chargé avant le clic : la miniature est
+       servie par le site, et l'iframe youtube-nocookie n'arrive qu'au
+       moment où la personne demande la vidéo. -->
+  <section class="section rule">
+    <div class="in">
+      <div class="head center">
+        <span class="eyebrow">Interviews</span>
+        <h2>Ils racontent <span class="hl">tout</span> en interview</h2>
+        <p class="lead">Leur point de départ, leur stratégie, leurs chiffres.</p>
+      </div>
+
+      <div class="yt-grid">
+        <figure class="yt yt--une">
+          <div class="yt-cadre">
+            <button type="button" class="yt-btn" data-yt="k2t3lGoK33o" aria-label="Lire l'interview : 25 000 € par mois avec 6 influenceuses IA">
+              <img src="img/interview-25000e-mois.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+            </button>
+          </div>
+          <figcaption><b class="num">25&nbsp;000&nbsp;€/mois</b><span>avec 6 influenceuses IA</span></figcaption>
+        </figure>
+
+        <div class="yt-rest">
+          <figure class="yt">
+            <div class="yt-cadre">
+              <button type="button" class="yt-btn" data-yt="_TzGN36CMJs" aria-label="Lire l'interview : 22 000 € par mois en 4 mois">
+                <img src="img/interview-22000e-mois.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+              </button>
+            </div>
+            <figcaption><b class="num">22&nbsp;000&nbsp;€/mois</b><span>en 4 mois, après avoir tout quitté</span></figcaption>
+          </figure>
+          <figure class="yt">
+            <div class="yt-cadre">
+              <button type="button" class="yt-btn" data-yt="G3LGgtfYDys" aria-label="Lire l'interview : 15 000 dollars en janvier avec une influenceuse IA">
+                <img src="img/interview-15000-dollars-janvier.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+              </button>
+            </div>
+            <figcaption><b class="num">15&nbsp;000&nbsp;$</b><span>en janvier, avec une influenceuse IA</span></figcaption>
+          </figure>
+          <figure class="yt">
+            <div class="yt-cadre">
+              <button type="button" class="yt-btn" data-yt="VBCVJllJ_h8" aria-label="Lire l'interview : 13 000 € par mois avec des influenceuses IA">
+                <img src="img/interview-13000e-mois.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+              </button>
+            </div>
+            <figcaption><b class="num">13&nbsp;000&nbsp;€/mois</b><span>avec des influenceuses IA</span></figcaption>
+          </figure>
+          <figure class="yt">
+            <div class="yt-cadre">
+              <button type="button" class="yt-btn" data-yt="esu1lNGDmdM" aria-label="Lire l'interview : 12 000 € par mois avec une influenceuse IA, à 18 ans">
+                <img src="img/interview-12000e-mois-18-ans.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="rond"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span>
+              </button>
+            </div>
+            <figcaption><b class="num">12&nbsp;000&nbsp;€/mois</b><span>avec une influenceuse IA, à 18 ans</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 9. FAQ ========== -->
+  <section class="section rule">
+    <div class="in faq-grid">
+      <div class="head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Les questions qu'on nous pose <span class="hl">le plus</span></h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Où est le piège ?</summary>
+          <div class="answer">Il n'y en a pas : j'ai intérêt à ce que tu réussisses. Tu apprends gratuitement, tu fais tes premiers résultats, et si tu veux aller plus loin tu rejoins l'accompagnement complet, financé par ce que ton influenceuse a rapporté, pas par tes économies. Seul l'abonnement à l'outil d'IA qu'on utilise reste à ta charge, quelques dizaines d'euros. Nous, on ne te facture rien, et il n'y a aucun paiement caché derrière l'appel.</div>
+        </details>
+        <details>
+          <summary>Pour qui est fait ce programme ?</summary>
+          <div class="answer">Pour celles et ceux qui veulent créer une influenceuse IA et en tirer un vrai revenu, que tu partes de zéro ou que tu aies déjà essayé d'autres business sans résultat. Si tu cherches de l'argent sans rien faire, ce n'est pas le bon endroit : il faut publier, tester, s'y tenir.</div>
+        </details>
+        <details>
+          <summary>Est-ce que je dois montrer mon visage ?</summary>
+          <div class="answer">Non. C'est tout l'intérêt d'une influenceuse IA : c'est elle qui est à l'écran, pas toi.</div>
+        </details>
+        <details>
+          <summary>Ai-je besoin de compétences techniques ou d'expérience ?</summary>
+          <div class="answer">Non. Le programme t'explique chaque étape pas à pas, de la création de ton influenceuse jusqu'à tes premiers revenus. Aucune expérience préalable n'est nécessaire, et aucune ligne de code.</div>
+        </details>
+        <details>
+          <summary>J'ai peu de temps libre, vais-je y arriver ?</summary>
+          <div class="answer">Le programme est conçu pour être suivi en parallèle d'un travail ou d'études. L'appel de mise en place sert justement à adapter le rythme au temps que tu as réellement. Une chose est sûre : plus tu soignes ton influenceuse et ton contenu, plus ça paie.</div>
+        </details>
+        <details>
+          <summary>Ai-je besoin d'un statut d'entreprise pour commencer ?</summary>
+          <div class="answer">Non, pas pour suivre le programme et créer ton influenceuse. Un statut devient nécessaire au moment où tu encaisses réellement : on aborde ce point pendant l'accompagnement pour que tu sois en règle sans perdre de temps.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 10. CTA FINAL ========== -->
+  <section class="section final fondu-or default-only rule">
+    <div class="in stack">
+      <span class="eyebrow"><span class="ac">[Nom de l'offre — À COMPLÉTER]</span></span>
+      <h2>Ton accès au programme</h2>
+
+      <div>
+        <div class="final-prix num">0&nbsp;€</div>
+        <div class="final-prix-note">Aujourd'hui, tu ne paies rien</div>
+      </div>
+
+      <ul class="final-list">
+        <li>Créer ton influenceuse IA</li>
+        <li>La rendre virale</li>
+        <li>Faire tes premiers 1&nbsp;000&nbsp;€</li>
+        <li>L'appel de mise en place avec l'équipe</li>
+      </ul>
+
+      <div class="final-preuves">
+        <div><b class="num">460&nbsp;€</b><span>en une soirée</span></div>
+        <div><b class="num">1&nbsp;907&nbsp;€</b><span>en 2 jours</span></div>
+        <div><b class="num">4&nbsp;552&nbsp;€</b><span>en un mois</span></div>
+      </div>
+
+      <button class="cta" data-open-modal>Je souhaite être appelé <span class="cta-fleche">→</span></button>
+      <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span><b class="num">+550</b> élèves formés · <b class="num">+12&nbsp;000</b> membres</span></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 11. FOOTER ========== -->
+<footer>
+  <div class="in footer-inner">
+    <!-- [À COMPLÉTER] liens légaux -->
+    <nav class="footer-links">
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Conditions générales</a>
+      <a href="#">Politique de remboursement</a>
+      <a href="#">Contact</a>
+    </nav>
+    <p class="copyright">© 2026 <span class="ac">[Société — À COMPLÉTER]</span>. Tous droits réservés.</p>
+
+    <div class="disclaimer">
+      <b>Avertissement sur les revenus</b>
+      <p>Avec une influenceuse IA, ce que tu réalises dépend d'une multitude de paramètres, entre autres :</p>
+      <ul>
+        <li>La qualité et la cohérence de ton influenceuse, et la niche que tu choisis</li>
+        <li>La régularité de ta publication et ta capacité à tester de nouveaux formats</li>
+        <li>Les algorithmes et les règles des plateformes, qui évoluent sans prévenir</li>
+        <li>Ta façon d'échanger avec ton audience et de la convertir</li>
+        <li>Le temps et l'énergie que tu investis réellement, ainsi que ta rigueur d'exécution</li>
+      </ul>
+      <p>Nous n'annonçons aucun résultat garanti. Certaines personnes ne publient jamais. D'autres publient sans jamais percer. D'autres encore construisent une activité solide. L'écart se joue le plus souvent sur l'exécution, la régularité et la persévérance après les premiers échecs.</p>
+
+      <b>Important</b>
+      <p>Les résultats mis en avant sont des cas favorables, pas une moyenne. Ils ne doivent en aucun cas servir de référence à ce que tu peux espérer. Cette activité comporte un risque réel : tu peux investir du temps et de l'argent en outils sans jamais récupérer ta mise.</p>
+
+      <b>Ta responsabilité</b>
+      <p>En consultant ce site et/ou en accédant à notre programme, tu reconnais que <span class="ac">[Société — À COMPLÉTER]</span> et ses représentants ne peuvent être tenus responsables de tes résultats, positifs comme négatifs. Tu restes seul décisionnaire de tes investissements et de la gestion de ton activité, et responsable du respect des conditions d'utilisation des plateformes et des règles qui encadrent les contenus générés par IA. Nous transmettons des méthodes et un accompagnement, pas une garantie de réussite.</p>
+
+      <p>Cette page n'est affiliée ni à Meta, ni à TikTok, ni à aucune plateforme de contenu.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== MODALE ========== -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal">
+    <div class="grabber" aria-hidden="true"></div>
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
+
+      <div id="formView">
+        <h3 id="modalTitle">Réserver <span class="or">ma place</span></h3>
+        <p class="sub">Laisse tes coordonnées, un membre de l'équipe te rappelle pour faire le point.</p>
+
+        <form id="bookingForm" novalidate>
+          <div class="field">
+            <label for="firstName">Prénom</label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Ton prénom" required>
+          </div>
+          <div class="field">
+            <label for="lastName">Nom</label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Ton nom" required>
+          </div>
+          <div class="field">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="ton@email.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Numéro de téléphone</label>
+            <div class="phone-row">
+              <select id="country" name="country" aria-label="Indicatif du pays"></select>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="6 12 34 56 78" required>
+            </div>
+            <p class="field-hint" id="phonePreview"></p>
+          </div>
+
+          <label class="atteste" id="attesteBlock">
+            <input type="checkbox" id="atteste" name="atteste">
+            <span>En validant, je confirme que mon numéro de téléphone est valide et correct.
+              Sans numéro valide, je ne pourrai pas être contacté ni recevoir mon accès au
+              programme.</span>
+          </label>
+
+          <!-- Anti-spam : invisible pour l'humain, rempli par les robots -->
+          <div class="hp" aria-hidden="true">
+            <label for="company">Société</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="form-error" id="formError" hidden></p>
+          <button type="submit" class="cta" id="submitBtn" style="margin-top:8px">Confirmer ma demande</button>
+        </form>
+
+        <p class="legal">En validant, tu acceptes d'être recontacté par téléphone au sujet du programme.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Agrandissement d'une capture -->
+<dialog class="zoom" id="zoom" aria-label="Capture agrandie">
+  <img id="zoomImg" src="" alt="">
+  <button type="button" id="zoomClose">Fermer</button>
+</dialog>
+
+<script>
+/* ============================================================
+   CONFIGURATION — enregistrement des leads
+   ------------------------------------------------------------
+   Le formulaire écrit dans la table `leads` de Supabase, seul
+   dépôt : historique, statut de rappel et notes des setters y
+   vivent, et le back-office les lit directement.
+
+   [À COMPLÉTER] URL du projet et clé PUBLIQUE (anon) du nouveau
+   projet Supabase de Maxence. Elle est faite pour vivre dans le
+   code de la page : la sécurité vient des règles RLS définies
+   dans supabase/schema.sql, qui autorisent l'insertion et
+   interdisent toute lecture.
+   Ne jamais mettre ici la clé service_role.
+   ============================================================ */
+var SUPABASE_URL      = '';   // ex. 'https://xxxxxxxxxxxx.supabase.co'
+var SUPABASE_ANON_KEY = '';   // Settings → API → anon public
+
+/* ------------------------------------------------------------
+   Indicatifs téléphoniques
+   Le drapeau est calculé à partir du code ISO du pays, et le
+   numéro est normalisé au format international E.164
+   (ex. 06 12 34 56 78 + France  ->  +33612345678).
+   ------------------------------------------------------------ */
+var COUNTRIES = [
+  ['FR','France','33'],        ['BE','Belgique','32'],      ['CH','Suisse','41'],
+  ['LU','Luxembourg','352'],   ['MC','Monaco','377'],       ['CA','Canada','1'],
+  ['US','États-Unis','1'],     ['MA','Maroc','212'],        ['DZ','Algérie','213'],
+  ['TN','Tunisie','216'],      ['SN','Sénégal','221'],      ['CI','Côte d\'Ivoire','225'],
+  ['CM','Cameroun','237'],     ['CD','RD Congo','243'],     ['CG','Congo','242'],
+  ['GA','Gabon','241'],        ['ML','Mali','223'],         ['BF','Burkina Faso','226'],
+  ['NE','Niger','227'],        ['TG','Togo','228'],         ['BJ','Bénin','229'],
+  ['GN','Guinée','224'],       ['MG','Madagascar','261'],   ['MU','Maurice','230'],
+  ['RE','La Réunion','262'],   ['GP','Guadeloupe','590'],   ['MQ','Martinique','596'],
+  ['GF','Guyane','594'],       ['PF','Polynésie fr.','689'],['NC','Nouvelle-Calédonie','687'],
+  ['HT','Haïti','509'],        ['ES','Espagne','34'],       ['PT','Portugal','351'],
+  ['IT','Italie','39'],        ['DE','Allemagne','49'],     ['AT','Autriche','43'],
+  ['NL','Pays-Bas','31'],      ['GB','Royaume-Uni','44'],   ['IE','Irlande','353'],
+  ['DK','Danemark','45'],      ['SE','Suède','46'],         ['NO','Norvège','47'],
+  ['FI','Finlande','358'],     ['PL','Pologne','48'],       ['CZ','Tchéquie','420'],
+  ['RO','Roumanie','40'],      ['BG','Bulgarie','359'],     ['GR','Grèce','30'],
+  ['HU','Hongrie','36'],       ['HR','Croatie','385'],      ['TR','Turquie','90'],
+  ['RU','Russie','7'],         ['UA','Ukraine','380'],      ['IL','Israël','972'],
+  ['AE','Émirats arabes unis','971'], ['SA','Arabie saoudite','966'], ['QA','Qatar','974'],
+  ['EG','Égypte','20'],        ['ZA','Afrique du Sud','27'],['NG','Nigéria','234'],
+  ['KE','Kenya','254'],        ['BR','Brésil','55'],        ['AR','Argentine','54'],
+  ['MX','Mexique','52'],       ['CL','Chili','56'],         ['CO','Colombie','57'],
+  ['AU','Australie','61'],     ['NZ','Nouvelle-Zélande','64'], ['JP','Japon','81'],
+  ['CN','Chine','86'],         ['KR','Corée du Sud','82'],  ['IN','Inde','91'],
+  ['TH','Thaïlande','66'],     ['VN','Viêt Nam','84'],      ['SG','Singapour','65'],
+  ['ID','Indonésie','62'],     ['PH','Philippines','63'],   ['MY','Malaisie','60']
+];
+
+function flagOf(iso){
+  return String.fromCodePoint(
+    iso.charCodeAt(0) - 65 + 0x1F1E6,
+    iso.charCodeAt(1) - 65 + 0x1F1E6
+  );
+}
+
+/* Numéro saisi + indicatif -> format international E.164.
+   Le 0 initial (préfixe national) est retiré : 06 12… -> +336 12… */
+function toE164(dial, raw){
+  var digits = String(raw).replace(/\D/g, '').replace(/^0+/, '');
+  if (!digits) return '';
+  return '+' + dial + digits;
+}
+
+function initCountrySelect(){
+  var sel = document.getElementById('country');
+  if (!sel) return;
+  COUNTRIES.forEach(function(c){
+    var o = document.createElement('option');
+    o.value = c[2];
+    o.textContent = flagOf(c[0]) + ' +' + c[2];
+    o.setAttribute('data-label', c[1]);
+    o.title = c[1] + ' (+' + c[2] + ')';
+    sel.appendChild(o);
+  });
+  sel.value = '33'; // France par défaut
+}
+
+function sendLead(payload){
+  // Tant que le projet Supabase n'est pas renseigné, on refuse d'envoyer :
+  // mieux vaut un message d'erreur qu'un lead perdu en silence.
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY){
+    console.error('Supabase non configuré : renseigner SUPABASE_URL et SUPABASE_ANON_KEY.');
+    return Promise.reject(new Error('config'));
+  }
+  return fetch(SUPABASE_URL + '/rest/v1/leads', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({
+      first_name: payload.firstName,
+      last_name:  payload.lastName,
+      email:      payload.email,
+      phone:      payload.phone,
+      page_url:   payload.pageUrl,
+      source:     payload.source
+    })
+  }).then(function(r){
+    if (r.ok) return;
+    return r.text().then(function(t){
+      console.error('Supabase a refusé le lead :', r.status, t);
+      throw new Error('supabase');
+    });
+  });
+}
+
+/* Les trois moments qui comptent sur une page de vente : on regarde la
+   vidéo, on ouvre le formulaire, on l'envoie. */
+function suivre(nom){
+  if (window.va) window.va('event', { name: nom });
+}
+
+(function(){
+  var overlay = document.getElementById('overlay');
+  var form = document.getElementById('bookingForm');
+  var lastFocused = null;
+
+  /* D'où vient la personne, quand elle est arrivée par un lien de
+     tracking (?src=…). Retenu trente jours, pour garder l'attribution
+     si le lead revient plus tard. Le nom du canal part avec le lead. */
+  function origineSuivie(){
+    var param = new URLSearchParams(location.search).get('src');
+    if (param) {
+      try {
+        localStorage.setItem('origine', JSON.stringify({
+          canal: param, jusqua: Date.now() + 30 * 24 * 3600 * 1000
+        }));
+      } catch (e) {}
+      return param;
+    }
+    try {
+      var garde = JSON.parse(localStorage.getItem('origine') || 'null');
+      if (garde && garde.jusqua > Date.now()) return garde.canal;
+    } catch (e) {}
+    return null;
+  }
+
+  (function(){
+    var canal = new URLSearchParams(location.search).get('src');
+    if (canal) suivre('Visite page de vente · ' + canal);
+  })();
+
+  function openModal(){
+    suivre('Formulaire ouvert');
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){
+      var target = document.getElementById('firstName');
+      if (target) target.focus({preventScroll:true});
+    }, 320);
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus({preventScroll:true});
+  }
+
+  document.querySelectorAll('[data-open-modal]').forEach(function(btn){
+    btn.addEventListener('click', openModal);
+  });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  var submitBtn = document.getElementById('submitBtn');
+  var errorBox  = document.getElementById('formError');
+  var FIELDS    = ['firstName','lastName','email','phone'];
+
+  var countrySel = document.getElementById('country');
+  var phoneInput = document.getElementById('phone');
+  var preview    = document.getElementById('phonePreview');
+
+  initCountrySelect();
+
+  function currentE164(){ return toE164(countrySel.value, phoneInput.value); }
+
+  function refreshPreview(){
+    var e164 = currentE164();
+    var opt  = countrySel.options[countrySel.selectedIndex];
+    var pays = opt ? opt.getAttribute('data-label') : '';
+    preview.textContent = e164
+      ? pays + ' · ' + e164
+      : pays + ' · saisis ton numéro sans l\'indicatif';
+  }
+
+  countrySel.addEventListener('change', refreshPreview);
+  phoneInput.addEventListener('input', refreshPreview);
+  refreshPreview();
+
+  function showError(msg){
+    errorBox.textContent = msg;
+    errorBox.hidden = false;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    var valid = true;
+    FIELDS.forEach(function(id){
+      var el = document.getElementById(id);
+      var ok = !!el.value.trim();
+      if (id === 'email' && ok) ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
+      if (id === 'phone' && ok){
+        var d = currentE164().replace(/\D/g,'');
+        ok = (d.length >= 8 && d.length <= 15);
+      }
+      if (!ok){ valid = false; el.style.borderColor = 'var(--red)'; }
+      else { el.style.borderColor = ''; }
+    });
+    if (!valid){
+      showError("Vérifie tes informations : tous les champs sont nécessaires, avec un e-mail et un numéro valides.");
+      return;
+    }
+
+    /* L'attestation est contrôlée en dernier : inutile de la réclamer à
+       quelqu'un dont le formulaire est de toute façon incomplet. Le bouton
+       reste actif plutôt que grisé : le refus est expliqué. */
+    var atteste = document.getElementById('atteste');
+    var bloc = document.getElementById('attesteBlock');
+    if (!atteste.checked){
+      bloc.classList.add('manque');
+      showError("Confirme que ton numéro est valide : c'est par là qu'on te joindra.");
+      bloc.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      return;
+    }
+    bloc.classList.remove('manque');
+
+    var payload = {
+      firstName: document.getElementById('firstName').value.trim(),
+      lastName:  document.getElementById('lastName').value.trim(),
+      email:     document.getElementById('email').value.trim(),
+      phone:     currentE164(),
+      company:   document.getElementById('company').value.trim(), // leurre
+      pageUrl:   location.href,
+      source:    origineSuivie() || document.referrer || null
+    };
+
+    submitBtn.setAttribute('aria-busy','true');
+    submitBtn.textContent = 'Envoi en cours…';
+
+    // Champ leurre rempli = robot : on simule un succès sans rien enregistrer
+    var send = payload.company ? Promise.resolve() : sendLead(payload);
+
+    send
+      .then(function(){
+        // Envoyé avant la redirection : après, la page a changé et le
+        // navigateur n'aurait plus le temps de transmettre l'événement.
+        suivre('Formulaire envoyé');
+        var canal = origineSuivie();
+        if (canal) suivre('Formulaire envoyé · ' + canal);
+        // Page de confirmation : même page, hero et bandeau différents.
+        // Les paramètres existants (utm_*, src…) sont conservés.
+        var params = new URLSearchParams(location.search);
+        params.set('confirmation', '1');
+        location.href = location.pathname + '?' + params.toString();
+      })
+      .catch(function(){
+        showError("L'envoi a échoué. Réessaie dans un instant, ou écris-nous directement.");
+      })
+      .finally(function(){
+        submitBtn.removeAttribute('aria-busy');
+        submitBtn.textContent = 'Confirmer ma demande';
+      });
+  });
+
+  document.getElementById('atteste').addEventListener('change', function(){
+    if (this.checked){
+      document.getElementById('attesteBlock').classList.remove('manque');
+      errorBox.hidden = true;
+    }
+  });
+
+  FIELDS.forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){ this.style.borderColor = ''; });
+  });
+})();
+
+/* ============================================================
+   PREUVES — captures, vidéos, interviews
+   ============================================================ */
+(function(){
+  /* Agrandir une capture : sur mobile, les chiffres d'un tableau de bord
+     se lisent mal dans une vignette. */
+  var zoom = document.getElementById('zoom');
+  var zoomImg = document.getElementById('zoomImg');
+  document.querySelectorAll('[data-zoom]').forEach(function(el){
+    if (el.tagName !== 'BUTTON'){
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); el.click(); }
+      });
+    }
+    el.addEventListener('click', function(){
+      if (!zoom.showModal) return;
+      zoomImg.src = el.getAttribute('data-zoom');
+      zoomImg.alt = el.getAttribute('data-alt') || '';
+      zoom.showModal();
+    });
+  });
+  document.getElementById('zoomClose').addEventListener('click', function(){ zoom.close(); });
+  zoom.addEventListener('click', function(e){ if (e.target === zoom) zoom.close(); });
+
+  /* Les témoignages vidéo : rien n'est téléchargé avant le clic
+     (preload="none"), et une seule vidéo joue à la fois. */
+  var videos = Array.prototype.slice.call(document.querySelectorAll('.clip video'));
+  function seule(v){ videos.forEach(function(x){ if (x !== v && !x.paused) x.pause(); }); }
+  document.querySelectorAll('.clip').forEach(function(clip){
+    var v = clip.querySelector('video');
+    var b = clip.querySelector('.clip-play');
+    b.addEventListener('click', function(){
+      seule(v);
+      b.hidden = true;
+      v.controls = true;
+      v.play().catch(function(){ b.hidden = false; v.controls = false; });
+      suivre('Témoignage vidéo lu');
+    });
+    v.addEventListener('play', function(){ seule(v); });
+  });
+
+  /* Les interviews YouTube : la miniature d'abord, le lecteur
+     youtube-nocookie seulement au clic. */
+  document.querySelectorAll('.yt-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      videos.forEach(function(x){ x.pause(); });
+      var id = btn.getAttribute('data-yt');
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+      f.title = btn.getAttribute('aria-label') || 'Interview';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      btn.parentNode.replaceChild(f, btn);
+      suivre('Interview YouTube lue');
+    });
+  });
+
+  /* Apparition au scroll : discrète, une seule fois par élément. */
+  var aReveler = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)){
+    aReveler.forEach(function(el){ el.classList.add('vu'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){ en.target.classList.add('vu'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  aReveler.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- Les VSL : celle de la page de vente et celle de la page de
+     confirmation. Le SDK Vimeo n'est chargé que si l'une d'elles est bien
+     là, et renseignée. -->
+<script>
+(function(){
+  /* Les deux hero cohabitent dans la même page, l'un masqué. On ne pose
+     l'adresse que sur le lecteur qu'on voit vraiment. Tant que
+     l'identifiant Vimeo n'est pas renseigné, le cadre affiche un
+     emplacement à compléter. */
+  var cadres = [];
+  var tous = document.querySelectorAll('.vsl-cadre');
+  for (var i = 0; i < tous.length; i++){
+    var c = tous[i];
+    if (c.offsetParent === null) continue;
+    var adresse = c.getAttribute('src') || c.getAttribute('data-src') || '';
+    if (!adresse || /VIMEO_ID_/.test(adresse)){
+      c.closest('.vsl').classList.add('vsl--vide');
+      continue;
+    }
+    if (!c.getAttribute('src')) c.src = adresse;
+    cadres.push(c);
+  }
+  if (!cadres.length) return;
+
+  var sdk = document.createElement('script');
+  sdk.src = 'https://player.vimeo.com/api/player.js';
+  sdk.onload = function(){
+    for (var i = 0; i < cadres.length; i++) piloter(cadres[i]);
+  };
+  document.head.appendChild(sdk);
+
+  function piloter(cadre){
+    var lecteur = new Vimeo.Player(cadre);
+    var boite   = cadre.closest('.vsl');
+    var bouton  = boite.querySelector('.vsl-play');
+    var calque  = boite.querySelector('.vsl-clic');
+    var icone   = boite.querySelector('.vsl-clic-icone');
+    var son     = boite.querySelector('.vsl-son');
+    var muet    = boite.querySelector('.vsl-muet');
+    var fin     = boite.parentElement.querySelector('.vsl-fin');
+    var auto    = cadre.hasAttribute('data-auto');
+
+    /* La position la plus avancée réellement regardée. On ne laisse pas
+       dépasser : sauter à la fin viderait la vidéo de son intérêt. Revenir
+       en arrière reste permis — réécouter un passage n'est pas tricher. */
+    var vu = 0;
+    var TOLERANCE = 1.2;   // secondes, pour ne pas lutter contre le lecteur
+
+    lecteur.on('timeupdate', function(e){
+      if (e.seconds > vu && e.seconds - vu < 3) vu = e.seconds;
+    });
+    lecteur.on('seeked', function(e){
+      if (e.seconds > vu + TOLERANCE) lecteur.setCurrentTime(vu);
+    });
+    lecteur.on('ended', function(){
+      if (fin) fin.hidden = false;
+      if (bouton){
+        bouton.hidden = false;
+        bouton.querySelector('.vsl-play-txt').textContent = 'Revoir la vidéo';
+      }
+    });
+
+    /* Le son : un mobile démarre parfois la vidéo en sourdine, même lancée
+       d'un clic. On le rétablit à chaque lancement, et si le navigateur
+       s'y oppose, on le demande avec un vrai geste sur la page. */
+    function retablirLeSon(){
+      return lecteur.setMuted(false)
+        .then(function(){ return lecteur.setVolume(1); })
+        .catch(function(){})
+        .then(function(){ return lecteur.getMuted(); })
+        .then(function(coupe){ if (son) son.hidden = !coupe; })
+        .catch(function(){});
+    }
+
+    lecteur.on('volumechange', function(e){
+      if (!e.muted && e.volume > 0){
+        if (son) son.hidden = true;
+        if (muet) muet.hidden = true;
+      }
+    });
+
+    /* Le démarrage automatique, en sourdine : seule forme que les
+       navigateurs acceptent sans geste. Si même la sourdine est refusée,
+       on remet le bouton de lecture. */
+    if (auto){
+      if (bouton) bouton.hidden = true;
+      lecteur.setMuted(true).then(function(){
+        return lecteur.play();
+      }).then(function(){
+        if (muet) muet.hidden = false;
+      }).catch(function(){
+        if (muet) muet.hidden = true;
+        if (bouton) bouton.hidden = false;
+      });
+    }
+
+    if (muet){
+      muet.addEventListener('click', function(e){
+        e.stopPropagation();
+        suivre('Son de la VSL activé');
+        muet.hidden = true;
+        lecteur.setMuted(false);
+        lecteur.setVolume(1);
+        lecteur.play().catch(function(){});
+      });
+    }
+
+    if (son){
+      son.addEventListener('click', function(e){
+        e.stopPropagation();
+        lecteur.setMuted(false);
+        lecteur.setVolume(1);
+        son.hidden = true;
+        lecteur.play().catch(function(){});
+      });
+    }
+
+    /* Clic sur la vidéo : pause ou reprise, avec une icône brève. */
+    var PAUSE   = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
+    var LECTURE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg>';
+
+    function clin(html){
+      icone.innerHTML = html;
+      icone.classList.add('vu');
+      clearTimeout(icone._t);
+      icone._t = setTimeout(function(){ icone.classList.remove('vu'); }, 600);
+    }
+
+    calque.addEventListener('click', function(){
+      if (muet && !muet.hidden) return;   // le premier clic rend le son
+      lecteur.getPaused().then(function(enPause){
+        if (enPause){ lecteur.play(); clin(LECTURE); }
+        else        { lecteur.pause(); clin(PAUSE); }
+      });
+    });
+
+    bouton.addEventListener('click', function(){
+      bouton.disabled = true;
+      lecteur.play().then(function(){
+        bouton.hidden = true;
+        bouton.disabled = false;
+        return retablirLeSon();
+      }).catch(function(){
+        bouton.disabled = false;
+        bouton.querySelector('.vsl-play-txt').textContent =
+          'Ton navigateur bloque la lecture — clique encore une fois';
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

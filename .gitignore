@@ -1,0 +1,6 @@
+.DS_Store
+
+# Médias bruts : seuls les fichiers optimisés (img/, videos/) partent en ligne
+Screen résultats/
+Vidéo témoignagne/
+charte/
