@@ -15,13 +15,6 @@ et dans `index.html` par un commentaire `[À COMPLÉTER]`.
 | Prix du programme complet | section 3, deux fois : « Une partie de mon programme complet à [X €] » (vente) et « Une partie de mon programme à [X €]. Offert. » (confirmation) | montant en euros |
 | Modules inclus | section 3, `<ul class="offer-list">` : 6 lignes provisoires | une ligne par module, autant que nécessaire |
 
-## Visuels
-
-| Quoi | Où | Format |
-|---|---|---|
-| Deux photos de Maxence | section 5, `.ps--left` et `.ps--right` | portrait 3:4 |
-| Capture de son profil (Instagram ou TikTok) | section 5, `.ps--phone` | 9:16 |
-
 ## Contenu
 
 | Quoi | Où | Remarque |
