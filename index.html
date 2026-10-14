@@ -196,17 +196,16 @@ strong{color:var(--text);font-weight:600}
    ============================================================ */
 .topbar{
   position:sticky;top:0;z-index:60;
-  padding:11px 20px;
-  background:rgba(5,5,5,.96);
-  border-bottom:1px solid var(--line);
-  color:var(--text);
-  font-size:13px;font-weight:600;line-height:1.45;text-align:center;
+  padding:12px 20px;
+  background:var(--gold);
+  color:#0A0800;
+  font-size:14px;font-weight:800;letter-spacing:-.01em;line-height:1.45;text-align:center;
 }
 .topbar::before{
-  content:"";display:inline-block;width:6px;height:6px;margin-right:9px;
-  background:var(--gold);vertical-align:.15em;
+  content:"";display:inline-block;width:7px;height:7px;margin-right:9px;
+  background:currentColor;vertical-align:.12em;
 }
-.topbar--alerte::before{background:var(--red)}
+.topbar--alerte{background:var(--red);color:#fff}
 
 /* ============================================================
    1. HERO
