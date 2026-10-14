@@ -1692,7 +1692,7 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
           </div>
 
           <p class="form-error" id="formError" hidden></p>
-          <button type="submit" class="cta" id="submitBtn" style="margin-top:8px">Envoyer ma demande</button>
+          <button type="submit" class="cta" id="submitBtn" style="margin-top:8px">Confirmer ma demande</button>
         </form>
 
         <p class="legal">En envoyant ce formulaire, tu acceptes qu'on te contacte par téléphone à propos du programme.</p>
@@ -1983,7 +1983,7 @@ function suivre(nom){
       })
       .finally(function(){
         submitBtn.removeAttribute('aria-busy');
-        submitBtn.textContent = 'Envoyer ma demande';
+        submitBtn.textContent = 'Confirmer ma demande';
       });
   });
 
