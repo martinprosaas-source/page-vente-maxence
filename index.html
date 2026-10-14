@@ -463,19 +463,36 @@ body.is-confirmation .urgency{display:none}
 }
 
 /* Une preuve collée au bouton : la capture en vignette, le chiffre, la phrase */
+/* La preuve sous le bouton : la vraie capture, lisible, et la phrase de l'élève */
 .preuve{
-  display:flex;align-items:center;gap:14px;
-  margin-top:18px;padding:12px;
+  display:block;width:100%;margin-top:22px;padding:0;
   border:1px solid var(--line);border-radius:var(--radius);
-  background:var(--surface);
-  text-align:left;width:100%;cursor:zoom-in;
+  background:var(--surface);overflow:hidden;
+  text-align:left;cursor:zoom-in;color:inherit;font:inherit;
 }
-.preuve img{width:64px;height:64px;object-fit:cover;object-position:center 30%;border-radius:6px;flex:none}
-.preuve b{
-  display:block;font-family:var(--font-title);font-weight:800;font-size:18px;
-  color:var(--gold);letter-spacing:-.01em;line-height:1.1;
+.preuve-capture{position:relative;display:block;height:176px;overflow:hidden;background:#fff;border-bottom:1px solid var(--line)}
+/* Zoomée pour sortir le cadre gris de la messagerie sur les côtés */
+.preuve-capture img{
+  display:block;width:122%;max-width:none;height:auto;
+  margin:-14px 0 0 -11%;
 }
-.preuve span{display:block;margin-top:3px;font-size:13.5px;line-height:1.4;color:var(--text-2)}
+.preuve-zoom{
+  position:absolute;right:10px;bottom:10px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:999px;
+  background:rgba(5,5,5,.82);color:var(--text);
+  font-size:12px;font-weight:600;line-height:1;
+}
+.preuve-zoom svg{width:13px;height:13px}
+.preuve-texte{display:block;padding:16px 18px 18px}
+.preuve-texte b{
+  display:block;font-family:var(--font-title);font-weight:800;font-size:19px;
+  color:var(--gold);letter-spacing:-.01em;line-height:1.15;
+}
+.preuve-citation{display:block;margin-top:8px;font-size:15px;line-height:1.45;color:var(--text)}
+.preuve-auteur{display:block;margin-top:6px;font-size:13px;color:var(--text-3)}
+.preuve:hover .preuve-zoom{background:var(--bg)}
+.preuve:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* ============================================================
    3 bis. LES ÉTAPES DÉBLOQUÉES — CONFIRMATION
@@ -1223,8 +1240,15 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
       <div class="default-only offer-cta" style="margin-top:26px">
         <button class="cta" data-open-modal>Je profite de l'offre <span class="cta-fleche">→</span></button>
         <button type="button" class="preuve" data-zoom="img/resultat-4552e-un-mois.webp" data-alt="Tableau de revenus d'un élève : 4 552 € de revenu net entre le 29 avril et le 27 mai">
-          <img src="img/resultat-4552e-un-mois.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
-          <span><b class="num">4&nbsp;552&nbsp;€ en un mois</b><span>« Constante évolution grâce aux méthodes appliquées », un élève dans la communauté</span></span>
+          <span class="preuve-capture">
+            <img src="img/resultat-4552e-un-mois.webp" alt="" width="646" height="800" loading="lazy" decoding="async">
+            <span class="preuve-zoom"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.6"/><path d="M10.4 10.4L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Agrandir</span>
+          </span>
+          <span class="preuve-texte">
+            <b class="num">4&nbsp;552&nbsp;€ en un mois</b>
+            <span class="preuve-citation">« Constante évolution grâce aux méthodes appliquées. »</span>
+            <span class="preuve-auteur">Un élève, dans la communauté</span>
+          </span>
         </button>
       </div>
     </div>
