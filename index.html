@@ -535,23 +535,51 @@ body.is-confirmation .urgency{display:none}
 /* ============================================================
    6. RÉSULTATS
    ============================================================ */
-/* Les captures, comme des pièces versées au dossier : l'image, puis
-   le montant et ce qu'il représente. */
+/* Tout le bloc tient dans une colonne plus étroite que la page : les
+   captures, le titre des vidéos et les vidéos partagent les mêmes bords. */
+.res-in{max-width:960px;margin:0 auto}
+
+/* Six cartes identiques : cinq captures et une carte d'appel. Même cadre,
+   même format d'image, même légende sur une ligne. */
 .wall{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.piece{margin:0;display:flex;flex-direction:column;cursor:zoom-in;background:none;border:0;padding:0;text-align:left}
-.piece img{
-  width:100%;height:auto;border-radius:var(--radius);
-  border:1px solid var(--line);
+.piece{
+  margin:0;display:flex;flex-direction:column;
+  padding:6px 6px 12px;border:1px solid var(--line);border-radius:var(--radius-lg);
+  background:var(--surface);cursor:zoom-in;
+  transition:border-color .16s ease;
 }
-.piece figcaption{padding:10px 2px 0}
+.piece:hover{border-color:var(--line-strong)}
+.piece img{
+  display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:top;
+  border-radius:calc(var(--radius-lg) - 5px);background:#1B1914;
+}
+.piece figcaption{padding:12px 6px 0}
 .piece b{
   display:block;font-family:var(--font-title);font-weight:800;
-  font-size:19px;line-height:1.1;color:var(--gold);letter-spacing:-.01em;
+  font-size:21px;line-height:1.05;color:var(--gold);letter-spacing:-.01em;
 }
-.piece span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--text-2)}
-.piece--une{grid-column:1 / -1}
-.piece--une img{aspect-ratio:646/520;object-fit:cover;object-position:top}
-.piece--une b{font-size:26px}
+.piece span{display:block;margin-top:5px;font-size:13px;line-height:1.35;color:var(--text-2)}
+
+/* La sixième carte : pas une capture, une invitation */
+.piece-cta{
+  display:flex;flex-direction:column;justify-content:space-between;gap:16px;
+  padding:18px 16px;border:1px solid var(--gold-deep);border-radius:var(--radius-lg);
+  background:var(--gold-dark);color:var(--text);text-align:left;cursor:pointer;font:inherit;
+  transition:border-color .16s ease, background .16s ease;
+}
+.piece-cta:hover{border-color:var(--gold);background:#362C08}
+.piece-cta .num{display:block;font-family:var(--font-title);font-weight:900;font-size:34px;line-height:1;color:var(--gold);letter-spacing:-.02em}
+.piece-cta .piece-cta-txt{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:var(--text)}
+.piece-cta .piece-cta-go{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-title);font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);
+}
+.piece-cta .piece-cta-go .cta-fleche{width:24px;height:24px;font-size:13px;background:var(--gold);color:var(--on-gold)}
+.piece-cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* En confirmation, la carte reste pour garder la grille pleine, mais sans
+   l'invitation : le lead est déjà enregistré. */
+body.is-confirmation .piece-cta{display:flex;pointer-events:none}
+body.is-confirmation .piece-cta-go{display:none}
 
 .sub-head{
   display:flex;align-items:baseline;justify-content:space-between;gap:12px;
@@ -896,11 +924,15 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
   .why-body .rating{justify-content:flex-start}
 
   /* 6. Résultats */
-  .wall{grid-template-columns:repeat(4,1fr);gap:28px 20px;align-items:start}
-  .piece--une{grid-column:1 / 3;grid-row:1 / 3}
-  .piece--une img{aspect-ratio:auto}
-  .piece--une b{font-size:34px}
-  .clips{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0 auto;padding:0;gap:20px;max-width:900px}
+  .wall{grid-template-columns:repeat(3,1fr);gap:20px}
+  .piece{padding:8px 8px 16px}
+  .piece figcaption{padding:16px 8px 0}
+  .piece b{font-size:26px}
+  .piece span{font-size:14px}
+  .piece-cta{padding:26px 24px}
+  .piece-cta .num{font-size:52px}
+  .piece-cta .piece-cta-txt{font-size:16px}
+  .clips{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0;padding:0;gap:20px}
 
   /* 7. CTA intermédiaire */
   .mid .in{max-width:720px}
@@ -1311,30 +1343,35 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
       <div class="head center">
         <span class="eyebrow">Résultats d'élèves</span>
         <h2>Ils ont déjà <span class="hl">encaissé</span></h2>
-        <p class="lead">Des captures postées par les élèves dans la communauté, telles quelles. Appuie sur une capture pour l'agrandir.</p>
+        <p class="lead">Envoyées par les élèves dans la communauté, sans retouche. Touche une capture pour la voir en entier.</p>
       </div>
 
+      <div class="res-in">
       <div class="wall">
-        <figure class="piece piece--une reveal" data-zoom="img/resultat-15421e-quatre-creatrices.webp" data-alt="Tableau de revenus d'un élève : 15 421 € sur la période, 28 commandes, 4 créatrices">
+        <figure class="piece reveal" data-zoom="img/resultat-15421e-quatre-creatrices.webp" data-alt="Tableau de revenus d'un élève : 15 421 € sur la période, 28 commandes, 4 créatrices">
           <img src="img/resultat-15421e-quatre-creatrices.webp" alt="Tableau de revenus d'un élève : 15 421 € sur la période, 28 commandes, 4 créatrices. Message : 10k en 2 jours" width="646" height="770" loading="lazy" decoding="async">
-          <figcaption><b class="num">15&nbsp;421&nbsp;€</b><span>sur la période, avec 4 créatrices. Son message : « 10k en 2 jours ».</span></figcaption>
+          <figcaption><b class="num">15&nbsp;421&nbsp;€</b><span>avec 4 créatrices</span></figcaption>
         </figure>
         <figure class="piece reveal" data-zoom="img/resultat-4552e-un-mois.webp" data-alt="Tableau de revenus d'un élève : 4 552 € de revenu net entre le 29 avril et le 27 mai">
           <img src="img/resultat-4552e-un-mois.webp" alt="Tableau de revenus d'un élève : 4 552 € de revenu net entre le 29 avril et le 27 mai, +50 % sur la période précédente" width="646" height="800" loading="lazy" decoding="async">
-          <figcaption><b class="num">4&nbsp;552&nbsp;€</b><span>de revenu net en un mois, +50&nbsp;%</span></figcaption>
+          <figcaption><b class="num">4&nbsp;552&nbsp;€</b><span>en un mois</span></figcaption>
         </figure>
         <figure class="piece reveal" data-zoom="img/resultat-1907e-deux-jours.webp" data-alt="Portefeuille Dropp d'un élève : 1 907,09 € de solde, en 2 jours">
           <img src="img/resultat-1907e-deux-jours.webp" alt="Portefeuille Dropp d'un élève : 1 907,09 € de solde. Message : en 2 jours avec une baleine" width="646" height="773" loading="lazy" decoding="async">
-          <figcaption><b class="num">1&nbsp;907&nbsp;€</b><span>en 2 jours, grâce à un seul gros acheteur</span></figcaption>
+          <figcaption><b class="num">1&nbsp;907&nbsp;€</b><span>en 2 jours</span></figcaption>
         </figure>
         <figure class="piece reveal" data-zoom="img/resultat-800e-soiree.webp" data-alt="Tableau de revenus d'un élève : 574 € le 10 mai. Message : petite soirée à 800 €, Dropp + PayPal">
           <img src="img/resultat-800e-soiree.webp" alt="Tableau de revenus d'un élève : 574 € de revenu net le 10 mai. Message : petite soirée à 800 €, Dropp + PayPal, un seul spender" width="645" height="828" loading="lazy" decoding="async">
-          <figcaption><b class="num">800&nbsp;€</b><span>en une soirée, Dropp et PayPal cumulés</span></figcaption>
+          <figcaption><b class="num">800&nbsp;€</b><span>en une soirée</span></figcaption>
         </figure>
         <figure class="piece reveal" data-zoom="img/resultat-460e-soiree.webp" data-alt="Tableau de revenus d'un élève : 460 € de revenu net le 7 mai, 11 commandes">
           <img src="img/resultat-460e-soiree.webp" alt="Tableau de revenus d'un élève : 460 € de revenu net le 7 mai, 11 commandes. Message : nouveau record hier soir" width="646" height="804" loading="lazy" decoding="async">
-          <figcaption><b class="num">460&nbsp;€</b><span>en une soirée, son nouveau record</span></figcaption>
+          <figcaption><b class="num">460&nbsp;€</b><span>son record d'un soir</span></figcaption>
         </figure>
+        <button type="button" class="piece-cta reveal" data-open-modal>
+          <span><span class="num">+550</span><span class="piece-cta-txt">élèves formés. La prochaine capture, ce sera peut-être la tienne.</span></span>
+          <span class="piece-cta-go">Je me lance <span class="cta-fleche">→</span></span>
+        </button>
       </div>
 
       <div class="sub-head">
@@ -1381,7 +1418,8 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
         </figure>
       </div>
 
-      <p class="mention">Retours publiés par les membres dans la communauté. Ce sont des cas favorables, pas une moyenne.</p>
+      <p class="mention">Captures et vidéos partagées par les membres. Ce sont parmi les meilleurs résultats de la communauté, pas un résultat type.</p>
+      </div>
     </div>
   </section>
 
