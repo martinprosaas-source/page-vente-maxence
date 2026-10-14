@@ -19,7 +19,6 @@ et dans `index.html` par un commentaire `[À COMPLÉTER]`.
 
 | Quoi | Où | Format |
 |---|---|---|
-| Photo de profil de Maxence | 3 monogrammes « MD » (hero, hero confirmation, section 5) | carré, ≥ 200 px, en `img/maxence.webp`. Remplacer `<span class="avatar">MD</span>` par `<img class="avatar" src="img/maxence.webp" alt="Maxence Delmas" width="46" height="46">` |
 | Deux photos de Maxence | section 5, `.ps--left` et `.ps--right` | portrait 3:4 |
 | Capture de son profil (Instagram ou TikTok) | section 5, `.ps--phone` | 9:16 |
 
