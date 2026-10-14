@@ -150,23 +150,33 @@ strong{color:var(--text);font-weight:600}
 
 /* ---------- CTA ---------- */
 .cta{
-  display:block;text-align:center;
-  width:100%;border:0;cursor:pointer;
-  padding:20px 22px;
-  border-radius:6px;
-  background:var(--gold-pale);
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  width:100%;cursor:pointer;
+  padding:17px 18px 17px 24px;
+  border:1px solid #FBDE7E;border-radius:12px;
+  background:linear-gradient(180deg,#FAD663 0%,var(--gold) 100%);
   color:var(--on-gold);
-  font-family:var(--font-title);font-weight:800;font-size:15.5px;
-  letter-spacing:.03em;text-transform:uppercase;line-height:1.2;
-  box-shadow:inset 0 -3px 0 rgba(0,0,0,.16);
-  transition:background .16s ease, transform .16s ease;
+  font-family:var(--font-title);font-weight:800;font-size:15px;
+  letter-spacing:.02em;text-transform:uppercase;line-height:1.25;text-align:center;
+  text-wrap:balance;
+  /* Le rebord sous le bouton : il donne l'envie d'appuyer, sans glow */
+  box-shadow:0 4px 0 var(--gold-deep), inset 0 1px 0 rgba(255,255,255,.45);
+  transition:transform .14s ease, box-shadow .14s ease, filter .14s ease;
   -webkit-tap-highlight-color:transparent;
 }
-.cta:hover{background:var(--gold)}
-.cta:active{transform:translateY(1px)}
-.cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.cta-fleche{display:inline-block;margin-left:8px;transition:transform .16s ease}
-.cta:hover .cta-fleche{transform:translateX(4px)}
+.cta:hover{filter:brightness(1.05)}
+.cta:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold-deep), inset 0 1px 0 rgba(255,255,255,.45)}
+.cta:focus-visible{outline:2px solid var(--text);outline-offset:4px}
+/* La flèche vit dans sa pastille noire : elle ne passe jamais à la ligne */
+.cta-fleche{
+  flex:none;display:grid;place-items:center;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--on-gold);color:var(--gold);
+  font-size:16px;line-height:1;letter-spacing:0;
+  transition:transform .16s ease;
+}
+.cta:hover .cta-fleche{transform:translateX(3px)}
+.cta:not(:has(.cta-fleche)){padding-inline:24px}
 .cta-note{font-size:13px;color:var(--text-3);text-align:center;line-height:1.5}
 
 /* La note étoilée sous les boutons, comme sur les visuels de Maxence */
@@ -859,7 +869,7 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
   .lead{font-size:18.5px}
   .head{margin-bottom:52px}
 
-  .cta{max-width:400px;font-size:16px;padding:21px 28px;margin-inline:auto}
+  .cta{max-width:420px;font-size:15.5px;padding:19px 20px 19px 28px;margin-inline:auto}
 
   /* 1. Hero : texte à gauche, vidéo à droite */
   .hero{padding-top:72px;padding-bottom:110px}
