@@ -500,37 +500,37 @@ body.is-confirmation .urgency{display:none}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============================================================
-   5. POURQUOI JE DONNE ACCÈS À TOUT ÇA
+   5. LE PIÈGE : QUI GAGNE QUOI
    ============================================================ */
-.byline{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.byline .avatar{width:44px;height:44px}
-.byline b{display:block;color:var(--text);font-size:15px;font-weight:700}
-.byline span{font-size:13px;color:var(--text-2)}
+.why-grid{display:flex;flex-direction:column;gap:34px}
 
 /* Le profil Instagram de Maxence, dans un cadre de téléphone */
-.photo-stage{display:flex;justify-content:center;margin:34px 0 8px;padding:10px 0}
+.why-phone{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.why-phone figcaption{font-size:13px;color:var(--text-3)}
 .ps{margin:0;overflow:hidden;background:#1B1914}
 .ps img{display:block;width:100%;height:100%;object-fit:cover}
-.ps--phone{width:62%;max-width:280px;aspect-ratio:9/16;border:7px solid #1B1914;border-radius:28px;box-shadow:0 0 0 1px var(--line-strong),0 24px 60px rgba(0,0,0,.65)}
+.ps--phone{width:58%;max-width:270px;aspect-ratio:9/16;border:7px solid #1B1914;border-radius:28px;box-shadow:0 0 0 1px var(--line-strong),0 24px 60px rgba(0,0,0,.65)}
 
-.prose p + p{margin-top:15px}
-.prose p{font-size:16.5px}
-.citation{
-  margin:24px 0;padding:2px 0 2px 18px;border-left:3px solid var(--gold);
+/* Qui paie qui : un registre à trois lignes, pas des cartes */
+.deal{border-top:1px solid var(--line-strong)}
+.deal-row{display:grid;gap:8px;padding:20px 0;border-bottom:1px solid var(--line)}
+.deal-qui{
+  font-family:var(--font-title);font-weight:800;font-size:12.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--gold);
+}
+.deal-row p{font-size:16px;line-height:1.55;color:var(--text-2)}
+.deal-row p b{color:var(--text);font-weight:600}
+.deal-zero{
+  display:block;margin-bottom:6px;
+  font-family:var(--font-title);font-weight:900;font-size:40px;line-height:1;
+  color:var(--text);letter-spacing:-.02em;
+}
+.why-verdict{
+  margin:28px 0 24px;
   font-family:var(--font-title);font-weight:800;text-transform:uppercase;
-  font-size:clamp(18px,5vw,21px);line-height:1.3;color:var(--text);
+  font-size:clamp(19px,5.2vw,24px);line-height:1.25;color:var(--text);text-wrap:balance;
 }
-
-.plan-steps{list-style:none;margin:26px 0;padding:0;display:flex;flex-direction:column;gap:18px}
-.plan-steps li{display:flex;gap:14px;align-items:flex-start}
-.plan-steps .n{
-  flex:none;width:30px;height:30px;border-radius:50%;
-  display:grid;place-items:center;
-  background:var(--gold-pale);color:var(--on-gold);
-  font-family:var(--font-title);font-weight:800;font-size:13px;
-}
-.plan-steps li > div{flex:1;font-size:15.5px;line-height:1.55}
-.plan-steps b{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+.why-verdict .num{color:var(--gold)}
 
 /* ============================================================
    6. RÉSULTATS
@@ -886,12 +886,14 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
   .ticker-item{font-size:16px;padding-left:30px}
   .ticker-item::after{margin-left:30px}
 
-  /* 5. Pourquoi : texte à gauche, photos à droite (l'inverse du hero) */
-  .why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:80px;align-items:start}
-  .why-left{position:sticky;top:90px}
-  .photo-stage{margin-top:40px}
-  .why-right .cta{margin-left:0;max-width:460px}
-  .why-right .rating{justify-content:flex-start}
+  /* 5. Le piège : le registre à gauche, le profil à droite */
+  .why-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:80px;align-items:center}
+  .why-phone{order:2}
+  .ps--phone{width:100%;max-width:290px}
+  .deal-row{grid-template-columns:170px 1fr;gap:24px;align-items:start;padding:24px 0}
+  .deal-qui{padding-top:4px}
+  .why-body .cta{margin-left:0;max-width:460px}
+  .why-body .rating{justify-content:flex-start}
 
   /* 6. Résultats */
   .wall{grid-template-columns:repeat(4,1fr);gap:28px 20px;align-items:start}
@@ -1263,52 +1265,42 @@ footer{padding:44px 0 52px;text-align:center;background:var(--bg)}
     </div>
   </div>
 
-  <!-- ========== 5. POURQUOI JE DONNE ACCÈS À TOUT ÇA ========== -->
+  <!-- ========== 5. LE PIÈGE : QUI GAGNE QUOI ========== -->
   <section class="section why">
-    <div class="in why-grid">
-      <div class="why-left">
-        <div class="byline">
-          <img class="avatar" src="img/maxence.webp" alt="" width="46" height="46">
-          <div>
-            <b>Maxence Delmas</b>
-            <span>Influenceuses IA &amp; OFM</span>
-          </div>
-        </div>
-
-        <h2>Pourquoi je donne accès à <span class="hl">tout ça</span>&nbsp;?</h2>
-
-        <div class="photo-stage">
-          <figure class="ps ps--phone"><img src="img/maxence-profil.webp" alt="Profil Instagram de Maxence Delmas : « Je t'apprends à créer et monétiser ton influenceuse IA »" width="600" height="1067" loading="lazy" decoding="async"></figure>
-        </div>
+    <div class="in">
+      <div class="head center">
+        <span class="eyebrow">Avant que tu demandes</span>
+        <h2>Gratuit ? Alors où est <span class="hl">le piège</span>&nbsp;?</h2>
+        <p class="lead">C'est la question qu'on me pose le plus. Voilà qui paie qui, sans rien cacher.</p>
       </div>
 
-      <div class="why-right">
-        <div class="prose">
-          <p>Tu te demandes peut-être : «&nbsp;Comment c'est possible de nous offrir ça gratuitement ? Où est le piège ?&nbsp;»</p>
-          <p><strong>Il n'y en a pas. J'ai simplement intérêt à ce que tu réussisses.</strong></p>
-          <p>Je me suis associé à une entreprise spécialisée dans l'IA, valorisée à plusieurs milliards de dollars, qui me rémunère pour te donner accès à ce contenu. Tout ce dont tu as besoin, c'est de l'outil d'IA que j'utilise au quotidien pour créer mes influenceuses.</p>
-          <p>Mon objectif, ce n'est pas de te vendre quelque chose aujourd'hui : c'est que tu fasses tes premiers euros avec ce programme gratuit. Le jour où ça marche pour toi, tu n'as plus aucune raison d'aller voir ailleurs, et c'est là qu'on gagne tous les deux.</p>
+      <div class="why-grid">
+        <figure class="why-phone">
+          <div class="ps ps--phone"><img src="img/maxence-profil.webp" alt="Profil Instagram de Maxence Delmas : « Je t'apprends à créer et monétiser ton influenceuse IA »" width="600" height="1067" loading="lazy" decoding="async"></div>
+          <figcaption>@maxence.delmass, sur Instagram</figcaption>
+        </figure>
+
+        <div class="why-body">
+          <div class="deal">
+            <div class="deal-row">
+              <span class="deal-qui">Toi</span>
+              <p><span class="deal-zero num">0&nbsp;€</span>pour le programme et l'appel de mise en place. La seule chose à prévoir, c'est l'outil d'IA que j'utilise pour créer mes influenceuses.</p>
+            </div>
+            <div class="deal-row">
+              <span class="deal-qui">Mon partenaire</span>
+              <p>Une entreprise spécialisée dans l'IA, valorisée à plusieurs milliards de dollars. <b>C'est elle qui me rémunère</b> pour te donner accès à ce contenu.</p>
+            </div>
+            <div class="deal-row">
+              <span class="deal-qui">Moi</span>
+              <p>Je ne te vends rien aujourd'hui. <b>Mon intérêt, c'est que ton influenceuse rapporte.</b> Le jour où elle le fait, c'est avec moi que tu voudras aller plus loin.</p>
+            </div>
+          </div>
+
+          <p class="why-verdict">Ton objectif devient le mien&nbsp;: tes premiers <span class="num">1&nbsp;000&nbsp;€</span>.</p>
+
+          <button class="cta" data-open-modal>Je veux créer mon influenceuse&nbsp;IA <span class="cta-fleche">→</span></button>
+          <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span>Note de <span class="ac">[À COMPLÉTER]</span>/5 par les membres</span></div>
         </div>
-
-        <ol class="plan-steps">
-          <li>
-            <span class="n">1</span>
-            <div><b>Tu rejoins le programme, gratuitement.</b> Le contenu et l'appel de mise en place : tu y accèdes sans sortir un euro.</div>
-          </li>
-          <li>
-            <span class="n">2</span>
-            <div><b>Tu fais tes premiers 1&nbsp;000&nbsp;€.</b> De quoi financer la suite avec l'argent que ton influenceuse a rapporté, pas avec tes économies.</div>
-          </li>
-          <li>
-            <span class="n">3</span>
-            <div><b>On s'associe.</b> Tu passes sur l'accompagnement complet, et on construit la suite ensemble.</div>
-          </li>
-        </ol>
-
-        <p class="citation">C'est gagnant-gagnant pour tout le monde.</p>
-
-        <button class="cta" data-open-modal>Je veux créer mon influenceuse&nbsp;IA <span class="cta-fleche">→</span></button>
-        <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span>Note de <span class="ac">[À COMPLÉTER]</span>/5 par les membres</span></div>
       </div>
     </div>
   </section>
