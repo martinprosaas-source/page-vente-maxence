@@ -5,10 +5,10 @@ et dans `index.html` par un commentaire `[À COMPLÉTER]`.
 
 ## Bloquant
 
+Supabase branché le 14/10 (projet `okeubnkzrniyobzhxkod`) : reste à créer la table `leads` (schéma).
+
 | Quoi | Où dans `index.html` | Format attendu |
 |---|---|---|
-| URL du projet Supabase | `var SUPABASE_URL = ''` (premier grand script) | `https://xxxx.supabase.co` |
-| Clé anon Supabase | `var SUPABASE_ANON_KEY = ''` | Settings → API → anon public. Sans les deux, le formulaire refuse l'envoi |
 | VSL de vente (Vimeo) | `VIMEO_ID_VENTE` dans l'iframe `#vslVente` | identifiant numérique Vimeo, vidéo 9:16 de préférence |
 | VSL de confirmation (Vimeo) | `VIMEO_ID_CONFIRMATION` dans l'iframe `#vslConfirm` | idem |
 | Nom de l'offre Starter | section 3 (titre de la carte offre) et section 10 (au-dessus de « Ton accès au programme ») | ex. « [Marque] Starter » |
